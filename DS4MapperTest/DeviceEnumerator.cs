@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using HidLibrary;
-using DS4MapperTest.DS4Library;
-using System.Runtime.InteropServices;
-using static DS4MapperTest.VidPidMeta;
-using DS4MapperTest.SwitchProLibrary;
+﻿using DS4MapperTest.DS4Library;
 using DS4MapperTest.DualSense;
 using DS4MapperTest.JoyConLibrary;
 using DS4MapperTest.SteamControllerLibrary;
+using DS4MapperTest.SwitchProLibrary;
+using HidLibrary;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace DS4MapperTest
 {
@@ -175,7 +171,7 @@ namespace DS4MapperTest
             removedKnownDevices.Clear();
 
             IEnumerable<HidDevice> hidDevs = HidDevices.Enumerate();
-            foreach(HidDevice hidDev in hidDevs)
+            foreach (HidDevice hidDev in hidDevs)
             {
                 currentDevicePaths.Add(hidDev.DevicePath);
             }

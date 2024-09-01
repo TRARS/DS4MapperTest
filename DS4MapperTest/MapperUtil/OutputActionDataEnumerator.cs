@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DS4MapperTest.MapperUtil
 {
@@ -35,7 +31,7 @@ namespace DS4MapperTest.MapperUtil
 
         public bool AtEnd()
         {
-            return (currentIndex+1) == _collection.Count;
+            return (currentIndex + 1) == _collection.Count;
         }
 
         public bool MoveNext()

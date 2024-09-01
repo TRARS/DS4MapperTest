@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 //using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DS4MapperTest.TouchpadActions
 {
@@ -381,7 +379,7 @@ namespace DS4MapperTest.TouchpadActions
 
                 foreach (string parentPropType in useParentProList)
                 {
-                    switch(parentPropType)
+                    switch (parentPropType)
                     {
                         case PropertyKeyStrings.NAME:
                             name = tempAbsAction.name;

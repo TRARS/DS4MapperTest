@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
+﻿using DS4MapperTest.MapperUtil;
 using DS4MapperTest.TriggerActions;
-using DS4MapperTest.MapperUtil;
+using System;
+using System.Collections.Generic;
 
 namespace DS4MapperTest.ViewModels.TriggerActionPropViewModels
 {

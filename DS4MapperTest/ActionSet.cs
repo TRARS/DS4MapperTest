@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DS4MapperTest.ButtonActions;
+﻿using DS4MapperTest.ButtonActions;
 using DS4MapperTest.DPadActions;
 using DS4MapperTest.GyroActions;
 using DS4MapperTest.StickActions;
 using DS4MapperTest.TouchpadActions;
 using DS4MapperTest.TriggerActions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DS4MapperTest
 {
@@ -67,13 +64,13 @@ namespace DS4MapperTest
 
         public Dictionary<string, ButtonMapAction> ButtonActionDict { get => currentActionLayer.buttonActionDict; }
 
-        
+
         public Dictionary<string, DPadMapAction> DpadActionDict { get => currentActionLayer.dpadActionDict; }
 
-        
+
         public Dictionary<string, StickMapAction> StickActionDict { get => currentActionLayer.stickActionDict; }
 
-        
+
         public Dictionary<string, GyroMapAction> GyroActionDict { get => currentActionLayer.gyroActionDict; }
 
         public ActionSet(int index, string name)
@@ -205,7 +202,7 @@ namespace DS4MapperTest
             }
         }
 
-        
+
         public void RemovePartialActionLayer(Mapper mapper, int index)
         {
             if (0 <= index && index < actionLayers.Count)
@@ -214,7 +211,7 @@ namespace DS4MapperTest
                 RemovePartialActionLayer(mapper, tempLayer);
             }
         }
-        
+
         public void RemovePartialActionLayer(Mapper mapper, ActionLayer layer)
         {
             if (appliedLayers.Count > 1 && appliedLayers.Remove(layer))
@@ -243,11 +240,11 @@ namespace DS4MapperTest
                     IEnumerable<ActionLayer> revLayers =
                         appliedLayers.Reverse<ActionLayer>();
 
-                    foreach(string mapId in tempOverrideIds)
+                    foreach (string mapId in tempOverrideIds)
                     {
                         ActionLayer usedIdLayer = null;
                         MapAction tempBaseAction = null;
-                        foreach(ActionLayer tempLayer in revLayers)
+                        foreach (ActionLayer tempLayer in revLayers)
                         {
                             if (tempLayer.normalActionDict.ContainsKey(mapId))
                             {
@@ -297,7 +294,7 @@ namespace DS4MapperTest
                         }
                     }
                     //foreach (ActionLayer tempLayer in appliedLayers)
-                    
+
                     {
                         activeCompositeLayer.Name = revLayers.First().Name;
                         activeCompositeLayer.Index = revLayers.First().Index;

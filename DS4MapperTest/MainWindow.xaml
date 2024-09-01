@@ -6,7 +6,8 @@
         xmlns:hc="https://handyorg.github.io/handycontrol"
         xmlns:local="clr-namespace:DS4MapperTest"
         mc:Ignorable="d"
-        Title="DS4MapperTest" Height="450" Width="800" Closed="Window_Closed">
+        Title="DS4MapperTest" Height="450" Width="800" Closed="Window_Closed"
+        WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
@@ -30,7 +31,8 @@
                     </StackPanel>
 
                     <DockPanel DockPanel.Dock="Top">
-                        <ListView x:Name="deviceListView" ItemsSource="{Binding ControllerList}" SelectedIndex="{Binding SelectIndex, FallbackValue='-1'}" MouseDoubleClick="DeviceListView_MouseDoubleClick">
+                        <ListView x:Name="deviceListView" ItemsSource="{Binding ControllerList}" SelectedIndex="{Binding SelectIndex, FallbackValue='-1'}" MouseDoubleClick="DeviceListView_MouseDoubleClick"
+                                  d:ItemsSource="{d:SampleData ItemCount=2}">
                             <ListView.View>
                                 <GridView>
                                     <GridView.Columns>

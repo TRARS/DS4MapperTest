@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DS4MapperTest.ActionUtil;
+﻿using DS4MapperTest.ActionUtil;
 
 namespace DS4MapperTest
 {
@@ -12,7 +7,7 @@ namespace DS4MapperTest
         public static ActionFuncSerializer CreateSerializer(ActionFunc tempFunc)
         {
             ActionFuncSerializer serializer = null;
-            switch(tempFunc)
+            switch (tempFunc)
             {
                 case NormalPressFunc:
                     serializer = new NormalPressFuncSerializer(tempFunc);

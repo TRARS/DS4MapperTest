@@ -7,10 +7,7 @@ using DS4MapperTest.TriggerActions;
 using Nefarius.ViGEm.Client;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace DS4MapperTest.SteamControllerLibrary
 {
@@ -512,6 +509,7 @@ namespace DS4MapperTest.SteamControllerLibrary
 
                 gamepadSync = intermediateState.Dirty;
 
+                //
                 ProcessSyncEvents();
 
                 ProcessActionSetLayerChecks();

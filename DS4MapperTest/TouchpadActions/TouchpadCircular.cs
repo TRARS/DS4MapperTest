@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DS4MapperTest.ActionUtil;
+using DS4MapperTest.ButtonActions;
 //using System.Diagnostics;
 using DS4MapperTest.MapperUtil;
 using DS4MapperTest.StickModifiers;
-using DS4MapperTest.ButtonActions;
-using DS4MapperTest.ActionUtil;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DS4MapperTest.TouchpadActions
 {
@@ -286,7 +284,7 @@ namespace DS4MapperTest.TouchpadActions
 
                 foreach (string parentPropType in useParentProList)
                 {
-                    switch(parentPropType)
+                    switch (parentPropType)
                     {
                         case PropertyKeyStrings.NAME:
                             name = tempCirleAction.name;

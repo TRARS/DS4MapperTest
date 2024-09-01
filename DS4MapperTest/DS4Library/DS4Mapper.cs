@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using DS4MapperTest.ButtonActions;
+﻿using DS4MapperTest.ButtonActions;
 using DS4MapperTest.DPadActions;
 using DS4MapperTest.GyroActions;
 using DS4MapperTest.MapperUtil;
@@ -14,6 +6,9 @@ using DS4MapperTest.StickActions;
 using DS4MapperTest.TouchpadActions;
 using DS4MapperTest.TriggerActions;
 using Nefarius.ViGEm.Client;
+using System;
+using System.Collections.Generic;
+using System.Threading;
 
 namespace DS4MapperTest.DS4Library
 {
@@ -489,6 +484,9 @@ namespace DS4MapperTest.DS4Library
 
             gamepadSync = intermediateState.Dirty;
 
+            //
+            intermediateState.DS4Touch1 = currentMapperState.Touch1;
+            intermediateState.DS4Touch2 = currentMapperState.Touch2;
             ProcessSyncEvents();
 
             ProcessActionSetLayerChecks();
@@ -560,7 +558,7 @@ namespace DS4MapperTest.DS4Library
         public override bool IsButtonActive(JoypadActionCodes code)
         {
             bool result = false;
-            switch(code)
+            switch (code)
             {
                 case JoypadActionCodes.AlwaysOn:
                     result = true;

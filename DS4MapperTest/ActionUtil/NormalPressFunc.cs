@@ -1,10 +1,6 @@
-﻿using System;
+﻿using DS4MapperTest.MapperUtil;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DS4MapperTest.MapperUtil;
 
 namespace DS4MapperTest.ActionUtil
 {
@@ -60,7 +56,7 @@ namespace DS4MapperTest.ActionUtil
 
         public NormalPressFunc(NormalPressFunc secondFunc)
         {
-            foreach(OutputActionData actionData in secondFunc.outputActions)
+            foreach (OutputActionData actionData in secondFunc.outputActions)
             {
                 OutputActionData tempData = new OutputActionData(actionData);
                 outputActions.Add(tempData);
@@ -182,7 +178,7 @@ namespace DS4MapperTest.ActionUtil
         {
             string result = "";
             List<string> tempList = new List<string>();
-            foreach(OutputActionData data in outputActions)
+            foreach (OutputActionData data in outputActions)
             {
                 tempList.Add(data.Describe(mapper));
             }

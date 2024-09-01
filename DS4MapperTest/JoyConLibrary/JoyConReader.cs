@@ -1,14 +1,8 @@
 ﻿using DS4MapperTest.Common;
-using DS4MapperTest.SwitchProLibrary;
 using HidLibrary;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace DS4MapperTest.JoyConLibrary
 {

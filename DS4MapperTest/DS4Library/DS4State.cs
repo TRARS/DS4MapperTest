@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DS4MapperTest.DS4Library
 {
@@ -59,7 +55,7 @@ namespace DS4MapperTest.DS4Library
         public bool R2Btn;
         public bool R3;
         public bool Circle;
-        public bool Cross;        
+        public bool Cross;
         public bool Square;
         public bool Triangle;
         public bool Share;
@@ -75,5 +71,10 @@ namespace DS4MapperTest.DS4Library
         public TouchInfo Touch2;
         public uint NumTouches;
         public DS4Motion Motion;
+
+        public DS4State()
+        {
+            LX = LY = RX = RY = 128;
+        }
     }
 }

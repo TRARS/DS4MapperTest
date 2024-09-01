@@ -49,6 +49,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CustomMacroBase\CustomMacroBase.csproj" />
+    <ProjectReference Include="..\CustomMacroFactory\CustomMacroFactory.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
     <Resource Include="images\circle-info-solid.png" />
     <Resource Include="images\gamepad-solid.png" />
   </ItemGroup>

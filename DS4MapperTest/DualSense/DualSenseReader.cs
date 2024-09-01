@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using HidLibrary;
+﻿using DS4MapperTest.Common;
 using DS4MapperTest.DS4Library;
-using DS4MapperTest.Common;
+using HidLibrary;
+using System;
+using System.Diagnostics;
+using System.Threading;
 
 namespace DS4MapperTest.DualSense
 {

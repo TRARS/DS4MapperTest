@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DS4MapperTest"
         mc:Ignorable="d"
-        Height="450" Width="800" Closed="Window_Closed">
+        Height="450" Width="800" Closed="Window_Closed"
+        WindowStartupLocation="CenterScreen">
     <Window.Title>
         <MultiBinding StringFormat="{}ButtonFuncEditWindow ({0})">
             <Binding Path="InputControlName" FallbackValue="Button" />

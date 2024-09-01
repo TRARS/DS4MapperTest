@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Data;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-using Newtonsoft.Json.Linq;
 
 namespace DS4MapperTest
 {
@@ -65,7 +60,7 @@ namespace DS4MapperTest
                 ProfileEntity tempEntity =
                     new ProfileEntity(profilePath, profileName, deviceType);
                 int insertIdx = profileListCol.TakeWhile((item) => string.Compare(item.Name, profileName) < 0).Count();
-                if (insertIdx > 0 && insertIdx < profileListCol.Count-1)
+                if (insertIdx > 0 && insertIdx < profileListCol.Count - 1)
                 {
                     profileListCol.Insert(insertIdx, tempEntity);
                 }

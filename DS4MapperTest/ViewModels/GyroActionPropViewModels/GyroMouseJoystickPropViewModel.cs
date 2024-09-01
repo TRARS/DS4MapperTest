@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using DS4MapperTest.ViewModels.Common;
-using DS4MapperTest.GyroActions;
+﻿using DS4MapperTest.GyroActions;
 using DS4MapperTest.MapperUtil;
 using DS4MapperTest.StickModifiers;
+using DS4MapperTest.ViewModels.Common;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DS4MapperTest.ViewModels.GyroActionPropViewModels
 {
@@ -621,7 +618,7 @@ namespace DS4MapperTest.ViewModels.GyroActionPropViewModels
             {
                 action.RaiseNotifyPropertyChange(mapper, GyroMouseJoystick.PropertyKeyStrings.OUTPUT_STICK);
             });
-            
+
             HighlightOutputStickChanged?.Invoke(this, EventArgs.Empty);
         }
 
@@ -636,7 +633,7 @@ namespace DS4MapperTest.ViewModels.GyroActionPropViewModels
             {
                 action.RaiseNotifyPropertyChange(mapper, GyroMouseJoystick.PropertyKeyStrings.ANTIDEAD_ZONE_Y);
             });
-            
+
             HighlightAntiDeadZoneYChanged?.Invoke(this, EventArgs.Empty);
         }
 
@@ -666,7 +663,7 @@ namespace DS4MapperTest.ViewModels.GyroActionPropViewModels
             {
                 action.RaiseNotifyPropertyChange(mapper, GyroMouseJoystick.PropertyKeyStrings.TRIGGER_ACTIVATE);
             });
-            
+
             HighlightGyroTriggerActivatesChanged?.Invoke(this, EventArgs.Empty);
         }
 
@@ -751,7 +748,7 @@ namespace DS4MapperTest.ViewModels.GyroActionPropViewModels
                 action.RaiseNotifyPropertyChange(mapper, GyroMouseJoystick.PropertyKeyStrings.DEAD_ZONE);
             };
             ExecuteInMapperThread(tempAction);
-            
+
             HighlightDeadZoneChanged?.Invoke(this, EventArgs.Empty);
         }
 
@@ -768,7 +765,7 @@ namespace DS4MapperTest.ViewModels.GyroActionPropViewModels
             };
 
             ExecuteInMapperThread(tempAction);
-            
+
             HighlightNameChanged?.Invoke(this, EventArgs.Empty);
         }
     }

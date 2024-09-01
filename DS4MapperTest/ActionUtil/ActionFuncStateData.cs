@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 
 namespace DS4MapperTest.ActionUtil
 {
@@ -14,7 +9,7 @@ namespace DS4MapperTest.ActionUtil
         public double axisNormValue = 0.0;
         public bool wasActive;
 
-        public void ResetProps(bool full=false)
+        public void ResetProps(bool full = false)
         {
             state = false;
             axisNormValue = 0.0;
@@ -24,7 +19,7 @@ namespace DS4MapperTest.ActionUtil
             }
         }
 
-        public void Reset(bool full=false)
+        public void Reset(bool full = false)
         {
             ResetProps(full);
 

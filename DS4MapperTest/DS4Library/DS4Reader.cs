@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using DS4MapperTest.Common;
+﻿using DS4MapperTest.Common;
 using HidLibrary;
+using System;
+using System.Diagnostics;
+using System.Threading;
 
 namespace DS4MapperTest.DS4Library
 {
@@ -117,7 +112,7 @@ namespace DS4MapperTest.DS4Library
 
             unchecked
             {
-                while(activeInputLoop)
+                while (activeInputLoop)
                 {
                     if (device.DevConnectionType == DS4Device.ConnectionType.Bluetooth)
                     {
@@ -157,14 +152,14 @@ namespace DS4MapperTest.DS4Library
                     current.PacketCounter = previous.PacketCounter + 1;
                     current.ReportTimeStamp = utcNow;
 
-                    current.LX = inputReportBuffer[1+reportOffset];
-                    current.LY = inputReportBuffer[2+reportOffset];
-                    current.RX = inputReportBuffer[3+reportOffset];
-                    current.RY = inputReportBuffer[4+reportOffset];
-                    current.L2 = inputReportBuffer[8+reportOffset];
-                    current.R2 = inputReportBuffer[9+reportOffset];
+                    current.LX = inputReportBuffer[1 + reportOffset];
+                    current.LY = inputReportBuffer[2 + reportOffset];
+                    current.RX = inputReportBuffer[3 + reportOffset];
+                    current.RY = inputReportBuffer[4 + reportOffset];
+                    current.L2 = inputReportBuffer[8 + reportOffset];
+                    current.R2 = inputReportBuffer[9 + reportOffset];
 
-                    tempByte = inputReportBuffer[5+reportOffset];
+                    tempByte = inputReportBuffer[5 + reportOffset];
                     current.Triangle = (tempByte & (1 << 7)) != 0;
                     current.Circle = (tempByte & (1 << 6)) != 0;
                     current.Cross = (tempByte & (1 << 5)) != 0;
@@ -188,7 +183,7 @@ namespace DS4MapperTest.DS4Library
                         default: current.DpadUp = false; current.DpadDown = false; current.DpadLeft = false; current.DpadRight = false; break;
                     }
 
-                    tempByte = inputReportBuffer[6+reportOffset];
+                    tempByte = inputReportBuffer[6 + reportOffset];
                     current.R3 = (tempByte & (1 << 7)) != 0;
                     current.L3 = (tempByte & (1 << 6)) != 0;
                     current.Options = (tempByte & (1 << 5)) != 0;

@@ -3,16 +3,11 @@ using DS4MapperTest.DPadActions;
 using DS4MapperTest.GyroActions;
 using DS4MapperTest.MapperUtil;
 using DS4MapperTest.StickActions;
-using DS4MapperTest.SwitchProLibrary;
 using Nefarius.ViGEm.Client;
 using Nefarius.ViGEm.Client.Targets;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace DS4MapperTest.JoyConLibrary
 {
@@ -576,6 +571,7 @@ namespace DS4MapperTest.JoyConLibrary
                     gamepadSync = true;
                 }
 
+                //
                 ProcessSyncEvents();
 
                 ProcessActionSetLayerChecks();
@@ -615,7 +611,7 @@ namespace DS4MapperTest.JoyConLibrary
                         reader.WriteRumbleReport();
                     };
                 }
-                
+
                 if (secondJoyDevice != null)
                 {
                     outputForceFeedbackSecondDel = (sender, e) =>
@@ -756,7 +752,7 @@ namespace DS4MapperTest.JoyConLibrary
 
             return result;
         }
-    
+
         public void AssignSecondaryJoyCon(JoyConDevice device, JoyConReader reader)
         {
             secondJoyDevice = device;
@@ -849,7 +845,7 @@ namespace DS4MapperTest.JoyConLibrary
                     (outputController as IXbox360Controller).FeedbackReceived += outputForceFeedbackDel;
                 }
 
-                HookSecondaryFeedback();                
+                HookSecondaryFeedback();
             }
         }
 

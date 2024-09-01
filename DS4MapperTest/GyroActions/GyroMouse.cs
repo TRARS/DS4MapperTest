@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DS4MapperTest.MapperUtil;
 using Sensorit.Base;
-using DS4MapperTest.ActionUtil;
-using DS4MapperTest.MapperUtil;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DS4MapperTest.GyroActions
 {
@@ -453,7 +449,7 @@ namespace DS4MapperTest.GyroActions
                 //bool updateSmoothing = false;
                 foreach (string parentPropType in useParentProList)
                 {
-                    switch(parentPropType)
+                    switch (parentPropType)
                     {
                         case PropertyKeyStrings.NAME:
                             name = tempMouseAction.name;

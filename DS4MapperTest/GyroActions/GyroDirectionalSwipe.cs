@@ -1,10 +1,8 @@
-﻿using System;
+﻿using DS4MapperTest.ButtonActions;
+using DS4MapperTest.MapperUtil;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DS4MapperTest.ButtonActions;
-using DS4MapperTest.MapperUtil;
 
 namespace DS4MapperTest.GyroActions
 {
@@ -403,7 +401,7 @@ namespace DS4MapperTest.GyroActions
         {
             if (active)
             {
-                foreach(KeyValuePair<ButtonAction, SwipeAxisXDir> pair in tmpActiveBtnsX)
+                foreach (KeyValuePair<ButtonAction, SwipeAxisXDir> pair in tmpActiveBtnsX)
                 {
                     ButtonAction data = pair.Key;
                     if (data != null)
@@ -511,7 +509,7 @@ namespace DS4MapperTest.GyroActions
 
                 foreach (string parentPropType in useParentProList)
                 {
-                    switch(parentPropType)
+                    switch (parentPropType)
                     {
                         case PropertyKeyStrings.NAME:
                             name = tempSwipeAction.name;

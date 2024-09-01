@@ -1,22 +1,19 @@
-﻿using System;
+﻿using DS4MapperTest.ButtonActions;
+using DS4MapperTest.DPadActions;
+using DS4MapperTest.GyroActions;
+using DS4MapperTest.StickActions;
+using DS4MapperTest.TouchpadActions;
+using DS4MapperTest.TriggerActions;
+using DS4MapperTest.ViewModels.Common;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using DS4MapperTest.ButtonActions;
-using DS4MapperTest.TriggerActions;
-using DS4MapperTest.TouchpadActions;
-using DS4MapperTest.StickActions;
-using DS4MapperTest.GyroActions;
-using DS4MapperTest.DPadActions;
-using System.Windows.Media;
-using DS4MapperTest.ViewModels.Common;
 
 namespace DS4MapperTest.ViewModels
 {
@@ -384,7 +381,7 @@ namespace DS4MapperTest.ViewModels
 
         public void Test()
         {
-            foreach(ActionSet set in tempProfile.ActionSets)
+            foreach (ActionSet set in tempProfile.ActionSets)
             {
                 ActionSetItemsTest tempItem = new ActionSetItemsTest(set);
                 actionSetItems.Add(tempItem);
@@ -450,7 +447,7 @@ namespace DS4MapperTest.ViewModels
         {
             int tempBtnInd = 0;
 
-            foreach(InputBindingMeta meta in
+            foreach (InputBindingMeta meta in
                 mapper.BindingList.Where((item) => item.controlType == InputBindingMeta.InputControlType.Button))
             {
                 if (tempProfile.CurrentActionSet.CurrentActionLayer.buttonActionDict.
@@ -654,7 +651,7 @@ namespace DS4MapperTest.ViewModels
             {
                 int ind = mapper.ActionProfile.CurrentActionSet.ActionLayers.Count;
                 tempLayer = new ActionLayer(ind);
-                tempLayer.Name = $"Layer {ind+1}";
+                tempLayer.Name = $"Layer {ind + 1}";
                 mapper.ActionProfile.CurrentActionSet.ActionLayers.Add(tempLayer);
             });
 
@@ -684,7 +681,7 @@ namespace DS4MapperTest.ViewModels
             mapper.ProcessMappingChangeAction(() =>
             {
                 int ind = mapper.ActionProfile.ActionSets.Count;
-                tempSet = new ActionSet(ind, $"Set {ind+1}");
+                tempSet = new ActionSet(ind, $"Set {ind + 1}");
                 mapper.ActionProfile.ActionSets.Add(tempSet);
                 mapper.PrepopulateBlankActionLayer(tempSet.DefaultActionLayer);
 
@@ -746,7 +743,7 @@ namespace DS4MapperTest.ViewModels
         {
             get
             {
-                string result = $"Layer {layer.Index+1}";
+                string result = $"Layer {layer.Index + 1}";
                 if (!string.IsNullOrEmpty(layer.Name))
                 {
                     result = layer.Name;
@@ -798,7 +795,7 @@ namespace DS4MapperTest.ViewModels
         {
             get
             {
-                string result = $"Set {set.Index+1}";
+                string result = $"Set {set.Index + 1}";
                 if (!string.IsNullOrEmpty(set.Name))
                 {
                     result = set.Name;
@@ -926,6 +923,7 @@ namespace DS4MapperTest.ViewModels
             get
             {
                 string result = mappedAction.DescribeActions(mapper);
+                //Trace.WriteLine($"result = {result}");
                 if (string.IsNullOrEmpty(result))
                 {
                     result = "Unknown";

@@ -1,12 +1,8 @@
-﻿using System;
+﻿using Sensorit.Base;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Sensorit.Base;
 //using System.Diagnostics;
-using DS4MapperTest.StickModifiers;
 
 namespace DS4MapperTest.TouchpadActions
 {
@@ -107,7 +103,7 @@ namespace DS4MapperTest.TouchpadActions
         {
             public const double DEFAULT_MIN_CUTOFF = 1.0;
             public const double DEFAULT_BETA = 0.7;
-            
+
             public OneEuroFilter filterX;
             public OneEuroFilter filterY;
 
@@ -610,7 +606,7 @@ namespace DS4MapperTest.TouchpadActions
 
                 foreach (string parentPropType in useParentProList)
                 {
-                    switch(parentPropType)
+                    switch (parentPropType)
                     {
                         case PropertyKeyStrings.NAME:
                             name = tempMouseAction.name;

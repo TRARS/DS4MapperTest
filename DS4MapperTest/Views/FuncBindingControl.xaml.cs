@@ -1,21 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DS4MapperTest.ActionUtil;
+using DS4MapperTest.ButtonActions;
+using DS4MapperTest.ViewModels;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using DS4MapperTest.ActionUtil;
-using DS4MapperTest.ViewModels;
-using DS4MapperTest.ButtonActions;
-using System.Threading;
 
 namespace DS4MapperTest.Views
 {
@@ -123,7 +111,7 @@ namespace DS4MapperTest.Views
         private void SwitchPropView(FuncBindItem item)
         {
             // Switch based on class type
-            switch(item.Func)
+            switch (item.Func)
             {
                 case NormalPressFunc normPress:
                     {
@@ -220,7 +208,7 @@ namespace DS4MapperTest.Views
 
             item = funcBindVM.AddTempBindItem();
             funcBindVM.CurrentItem = item;
-            funcBindVM.CurrentBindItemIndex = funcBindVM.FuncList.Count-1;
+            funcBindVM.CurrentBindItemIndex = funcBindVM.FuncList.Count - 1;
             item.ItemActive = true;
             ActionChanged?.Invoke(this, funcBindVM.Action);
 

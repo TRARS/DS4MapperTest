@@ -1,12 +1,9 @@
-﻿using System;
+﻿using DS4MapperTest.ButtonActions;
+using DS4MapperTest.StickModifiers;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DS4MapperTest.ButtonActions;
-using DS4MapperTest.MapperUtil;
-using DS4MapperTest.StickModifiers;
 
 namespace DS4MapperTest.TouchpadActions
 {

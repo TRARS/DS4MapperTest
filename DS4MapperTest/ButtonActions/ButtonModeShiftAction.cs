@@ -1,11 +1,5 @@
-﻿using DS4MapperTest.ActionUtil;
-using DS4MapperTest.ButtonActions;
-using DS4MapperTest.MapperUtil;
+﻿using DS4MapperTest.MapperUtil;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DS4MapperTest.ButtonActions
 {
@@ -55,7 +49,7 @@ namespace DS4MapperTest.ButtonActions
                 stateData.state = state;
                 stateData.axisNormValue = state ? 1.0 : 0.0;
             }
-            
+
             currentAction.Prepare(mapper, status, alterState);
             active = state;
             activeEvent = true;
@@ -81,7 +75,7 @@ namespace DS4MapperTest.ButtonActions
             activeEvent = false;
         }
 
-        public override void Release(Mapper mapper, bool resetState=true, bool ignoreReleaseActions = false)
+        public override void Release(Mapper mapper, bool resetState = true, bool ignoreReleaseActions = false)
         {
             if (previousAction != currentAction && previousAction != null)
             {

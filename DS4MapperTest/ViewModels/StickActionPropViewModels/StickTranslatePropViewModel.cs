@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using DS4MapperTest.StickActions;
+﻿using DS4MapperTest.StickActions;
 using DS4MapperTest.StickModifiers;
 using DS4MapperTest.ViewModels.Common;
+using System;
+using System.Collections.Generic;
 
 namespace DS4MapperTest.ViewModels.StickActionPropViewModels
 {
@@ -247,7 +243,7 @@ namespace DS4MapperTest.ViewModels.StickActionPropViewModels
 
                 if (temp == value) return;
 
-                switch(value)
+                switch (value)
                 {
                     case InvertChoices.None:
                         action.InvertX = action.InvertY = false;

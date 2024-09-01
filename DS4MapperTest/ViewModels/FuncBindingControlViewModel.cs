@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Collections.ObjectModel;
-using DS4MapperTest.ActionUtil;
+﻿using DS4MapperTest.ActionUtil;
 using DS4MapperTest.ButtonActions;
 using DS4MapperTest.MapperUtil;
-using System.Threading;
+using System;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Windows.Controls;
 
 namespace DS4MapperTest.ViewModels
 {
@@ -76,7 +72,7 @@ namespace DS4MapperTest.ViewModels
             thing = new ObservableCollection<FuncBindItem>();
 
             int tempInd = 0;
-            foreach(ActionFunc func in action.ActionFuncs)
+            foreach (ActionFunc func in action.ActionFuncs)
             {
                 thing.Add(new FuncBindItem(action, func, tempInd++));
             }
@@ -134,7 +130,7 @@ namespace DS4MapperTest.ViewModels
             });
 
             int tempInd = ind;
-            foreach(FuncBindItem item in thing.Where((item) => item.Index > ind))
+            foreach (FuncBindItem item in thing.Where((item) => item.Index > ind))
             {
                 item.Index = tempInd++;
             }
@@ -167,7 +163,7 @@ namespace DS4MapperTest.ViewModels
         {
             ActionFunc result = null;
             OutputActionData tempData = new OutputActionData(OutputActionData.ActionType.Empty, 0);
-            switch(selectFunc)
+            switch (selectFunc)
             {
                 case 1:
                     result = new NormalPressFunc(tempData);
@@ -343,7 +339,7 @@ namespace DS4MapperTest.ViewModels
             get
             {
                 string result = DEFAULT_DISPLAY_NAME;
-                switch(func)
+                switch (func)
                 {
                     case NormalPressFunc:
                         break;

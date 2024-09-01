@@ -1,6 +1,5 @@
-﻿using System;
+﻿using DS4MapperTest.MapperUtil;
 using System.Collections.Generic;
-using DS4MapperTest.MapperUtil;
 
 namespace DS4MapperTest.ActionUtil
 {
@@ -15,7 +14,7 @@ namespace DS4MapperTest.ActionUtil
         }
 
         public DistanceFunc(OutputActionData outputAction,
-            double distance=0.0)
+            double distance = 0.0)
         {
             onDistance = true;
 
@@ -26,7 +25,7 @@ namespace DS4MapperTest.ActionUtil
         }
 
         public DistanceFunc(IEnumerable<OutputActionData> outputActions,
-            double distance=0.0)
+            double distance = 0.0)
         {
             this.outputActions.AddRange(outputActions);
             outputActionEnumerator =

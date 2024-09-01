@@ -1,20 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DS4MapperTest.ActionUtil;
+using DS4MapperTest.TouchpadActions;
+using DS4MapperTest.ViewModels;
+using DS4MapperTest.Views.TouchpadActionPropControls;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using DS4MapperTest.ViewModels;
-using DS4MapperTest.ActionUtil;
-using DS4MapperTest.TouchpadActions;
-using DS4MapperTest.Views.TouchpadActionPropControls;
 
 namespace DS4MapperTest.Views
 {
@@ -60,7 +50,7 @@ namespace DS4MapperTest.Views
 
         public void SetupDisplayControl()
         {
-            switch(touchBindEditVM.Action)
+            switch (touchBindEditVM.Action)
             {
                 case TouchpadStickAction:
                     {

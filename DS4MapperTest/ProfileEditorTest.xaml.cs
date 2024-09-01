@@ -1,25 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DS4MapperTest.ButtonActions;
+using DS4MapperTest.DPadActions;
+using DS4MapperTest.GyroActions;
+using DS4MapperTest.StickActions;
+using DS4MapperTest.TouchpadActions;
+using DS4MapperTest.TriggerActions;
+using DS4MapperTest.ViewModels;
+using DS4MapperTest.Views;
+using System;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using DS4MapperTest.ButtonActions;
-using DS4MapperTest.Views;
-using DS4MapperTest.ViewModels;
-using DS4MapperTest.TriggerActions;
-using DS4MapperTest.TouchpadActions;
-using DS4MapperTest.StickActions;
-using DS4MapperTest.GyroActions;
-using DS4MapperTest.DPadActions;
 
 namespace DS4MapperTest
 {
@@ -49,7 +41,7 @@ namespace DS4MapperTest
             string mapTag = (sender as Button).Tag.ToString();
             int ind = editorTestVM.ButtonBindingsIndexDict[mapTag];
             Debug.WriteLine(mapTag);
-            
+
             ButtonMapAction tempAction = editorTestVM.ButtonBindings[ind].MappedAction;
             editorTestVM.PopulateMapperEditActionRefs(editorTestVM.DeviceMapper);
             if (tempAction.GetType() == typeof(ButtonAction))

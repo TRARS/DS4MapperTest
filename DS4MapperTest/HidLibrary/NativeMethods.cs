@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32.SafeHandles;
+using System;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
-using Microsoft.Win32.SafeHandles; 
 
 namespace HidLibrary
 {
@@ -217,7 +217,7 @@ namespace HidLibrary
             internal IntPtr Reserved;
         }
 
-        [StructLayout(LayoutKind.Sequential, CharSet=CharSet.Auto)]
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
         internal struct SP_DEVICE_INTERFACE_DETAIL_DATA
         {
             internal int Size;
@@ -290,7 +290,7 @@ namespace HidLibrary
             internal int hwProfile;
         }
 
-        internal static DEVPROPKEY DEVPKEY_Device_BusReportedDeviceDesc = 
+        internal static DEVPROPKEY DEVPKEY_Device_BusReportedDeviceDesc =
             new DEVPROPKEY { fmtid = new Guid(0x540b947e, 0x8b40, 0x45bc, 0xa8, 0xa2, 0x6a, 0x0b, 0x89, 0x4c, 0xbd, 0xa2), pid = 4 };
 
         internal static DEVPROPKEY DEVPKEY_Device_DeviceDesc =
@@ -469,7 +469,7 @@ namespace HidLibrary
         static internal extern bool HidD_GetFeature(IntPtr hidDeviceObject, byte[] lpReportBuffer, int reportBufferLength);
 
         [DllImport("hid.dll", SetLastError = true)]
-        internal static extern Boolean HidD_GetInputReport(SafeFileHandle HidDeviceObject, Byte[] lpReportBuffer, Int32 ReportBufferLength);        
+        internal static extern Boolean HidD_GetInputReport(SafeFileHandle HidDeviceObject, Byte[] lpReportBuffer, Int32 ReportBufferLength);
 
         [DllImport("hid.dll")]
         static internal extern void HidD_GetHidGuid(ref Guid hidGuid);
@@ -491,7 +491,7 @@ namespace HidLibrary
 
         [DllImport("hid.dll")]
         static internal extern bool HidD_SetNumInputBuffers(IntPtr hidDeviceObject, int numberBuffers);
-        
+
         [DllImport("hid.dll")]
         static internal extern bool HidD_SetOutputReport(IntPtr hidDeviceObject, byte[] lpReportBuffer, int reportBufferLength);
 

@@ -4,12 +4,8 @@ using DS4MapperTest.GyroActions;
 using DS4MapperTest.MapperUtil;
 using DS4MapperTest.StickActions;
 using Nefarius.ViGEm.Client;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace DS4MapperTest.SwitchProLibrary
 {
@@ -403,6 +399,7 @@ namespace DS4MapperTest.SwitchProLibrary
 
                 gamepadSync = intermediateState.Dirty;
 
+                //
                 ProcessSyncEvents();
 
                 ProcessActionSetLayerChecks();

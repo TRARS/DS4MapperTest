@@ -1,25 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DS4MapperTest.SteamControllerLibrary;
+using DS4MapperTest.ViewModels;
+using DS4MapperTest.Views;
+using DS4Windows;
+using HidLibrary;
+using Microsoft.Win32;
+using System;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Microsoft.Win32;
-using DS4MapperTest.Views;
-using DS4MapperTest.ViewModels;
-using HidLibrary;
 using System.Windows.Interop;
-using System.Diagnostics;
-using System.Threading;
-using DS4MapperTest.SteamControllerLibrary;
 
 namespace DS4MapperTest
 {
@@ -64,6 +57,8 @@ namespace DS4MapperTest
         public MainWindow()
         {
             InitializeComponent();
+
+            CustomMacroLink.Init(null, null);
         }
 
         public void PostInit(AppGlobalData appGlobal)

@@ -1,13 +1,8 @@
-﻿using System;
+﻿using DS4MapperTest.StickModifiers;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DS4MapperTest.MapperUtil;
-using DS4MapperTest.AxisModifiers;
-using DS4MapperTest.StickModifiers;
-using DS4MapperTest.ActionUtil;
 using System.Diagnostics;
+using System.Linq;
 
 namespace DS4MapperTest.StickActions
 {

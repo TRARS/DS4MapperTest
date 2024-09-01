@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DS4MapperTest.ButtonActions;
+﻿using DS4MapperTest.ButtonActions;
 using DS4MapperTest.DPadActions;
 using DS4MapperTest.GyroActions;
 using DS4MapperTest.StickActions;
-using DS4MapperTest.TriggerActions;
 using DS4MapperTest.TouchpadActions;
+using DS4MapperTest.TriggerActions;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DS4MapperTest
 {
@@ -98,7 +94,7 @@ namespace DS4MapperTest
                 reverseActionDict.Add(pair.Value, pair.Key);
             }
 
-            foreach(KeyValuePair<MapAction, string> pair in reverseActionDict)
+            foreach (KeyValuePair<MapAction, string> pair in reverseActionDict)
             {
                 normalActionDict.Add(pair.Value, pair.Key);
             }

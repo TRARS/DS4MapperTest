@@ -1,12 +1,8 @@
-﻿using System;
+﻿using DS4MapperTest.GyroActions;
+using DS4MapperTest.MapperUtil;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using DS4MapperTest.ViewModels.Common;
-using DS4MapperTest.GyroActions;
-using DS4MapperTest.MapperUtil;
 
 namespace DS4MapperTest.ViewModels.GyroActionPropViewModels
 {
@@ -442,7 +438,7 @@ namespace DS4MapperTest.ViewModels.GyroActionPropViewModels
             {
                 action.RaiseNotifyPropertyChange(mapper, GyroMouse.PropertyKeyStrings.VERTICAL_SCALE);
             });
-            
+
             HighlightVerticalScaleChanged?.Invoke(this, EventArgs.Empty);
         }
 
@@ -457,7 +453,7 @@ namespace DS4MapperTest.ViewModels.GyroActionPropViewModels
             {
                 action.RaiseNotifyPropertyChange(mapper, GyroMouse.PropertyKeyStrings.SENSITIVITY);
             });
-            
+
             HighlightSensitivityChanged?.Invoke(this, EventArgs.Empty);
         }
 
@@ -531,12 +527,12 @@ namespace DS4MapperTest.ViewModels.GyroActionPropViewModels
             //    new GyroTriggerButtonItem("Steam", JoypadActionCodes.BtnMode),
             //});
 
-            foreach(ActionTriggerItem item in mapper.ActionTriggerItems)
+            foreach (ActionTriggerItem item in mapper.ActionTriggerItems)
             {
                 triggerButtonItems.Add(new GyroTriggerButtonItem(item.DisplayName, item.Code));
             }
 
-            foreach(JoypadActionCodes code in action.mouseParams.gyroTriggerButtons)
+            foreach (JoypadActionCodes code in action.mouseParams.gyroTriggerButtons)
             {
                 GyroTriggerButtonItem tempItem = triggerButtonItems.Find((item) => item.Code == code);
                 if (tempItem != null)
@@ -610,7 +606,7 @@ namespace DS4MapperTest.ViewModels.GyroActionPropViewModels
         public event EventHandler EnabledChanged;
 
         public GyroTriggerButtonItem(string displayString, JoypadActionCodes code,
-            bool enabled=false)
+            bool enabled = false)
         {
             this.displayString = displayString;
             this.code = code;

@@ -1,7 +1,6 @@
-﻿using System;
+﻿using FakerInputWrapper;
 using System.Collections.Generic;
 using System.Windows.Input;
-using FakerInputWrapper;
 using MouseButton = FakerInputWrapper.MouseButton;
 
 namespace DS4MapperTest

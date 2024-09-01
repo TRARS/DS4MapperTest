@@ -1,11 +1,7 @@
 ﻿using NLog;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -124,7 +120,7 @@ namespace DS4MapperTest
         {
             GC.Collect(0, GCCollectionMode.Forced, false);
         }
-        
+
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             Exception exp = e.ExceptionObject as Exception;
@@ -149,7 +145,7 @@ namespace DS4MapperTest
                 }
             }
         }
-        
+
         private void Application_Exit(object sender, ExitEventArgs e)
         {
             CleanShutDown();

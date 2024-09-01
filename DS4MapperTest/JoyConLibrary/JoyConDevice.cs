@@ -1,13 +1,9 @@
 ﻿using DS4MapperTest.DS4Library;
+using DS4Windows;
 using HidLibrary;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace DS4MapperTest.JoyConLibrary
 {
@@ -750,13 +746,14 @@ namespace DS4MapperTest.JoyConLibrary
             byte[] command;
             byte[] tmpBuffer;
 
-            //command = new byte[] { 0x00, 0x50, 0x00, 0x00, 0x01 };
-            //tmpBuffer = Subcommand(SwitchProSubCmd.SPI_FLASH_READ, command, 5, checkResponse: true);
-            //Console.WriteLine("THE POWER");
-            //Console.WriteLine(string.Join(",", tmpBuffer));
-            //Console.WriteLine(tmpBuffer[SPI_RESP_OFFSET]);
-            //Console.WriteLine();
+        //command = new byte[] { 0x00, 0x50, 0x00, 0x00, 0x01 };
+        //tmpBuffer = Subcommand(SwitchProSubCmd.SPI_FLASH_READ, command, 5, checkResponse: true);
+        //Console.WriteLine("THE POWER");
+        //Console.WriteLine(string.Join(",", tmpBuffer));
+        //Console.WriteLine(tmpBuffer[SPI_RESP_OFFSET]);
+        //Console.WriteLine();
 
+        reload_left://
             bool foundUserCalib = false;
 
             if (sideType == JoyConSide.Left)
@@ -811,6 +808,11 @@ namespace DS4MapperTest.JoyConLibrary
                     //leftStickYData.mid = leftStickCalib[3];
                     leftStickYData.mid = (ushort)((leftStickYData.max - leftStickYData.min) / 2.0 + leftStickYData.min);
                     //leftStickOffsetX = leftStickOffsetY = 140;
+
+                    if (CustomMacroLink.HasAnyZero("left", leftStickXData, leftStickYData))
+                    {
+                        goto reload_left;//
+                    }
                 }
 
                 //leftStickOffsetX = leftStickCalib[2];
@@ -831,6 +833,7 @@ namespace DS4MapperTest.JoyConLibrary
             }
             else if (sideType == JoyConSide.Right)
             {
+            reload_right://
                 foundUserCalib = false;
                 command = new byte[] { 0x1B, 0x80, 0x00, 0x00, 0x02 };
                 tmpBuffer = Subcommand(SwitchProSubCmd.SPI_FLASH_READ, command, 5, checkResponse: true);
@@ -882,6 +885,11 @@ namespace DS4MapperTest.JoyConLibrary
                     //rightStickYData.mid = rightStickCalib[3];
                     rightStickYData.mid = (ushort)((rightStickYData.max - rightStickYData.min) / 2.0 + rightStickYData.min);
                     //rightStickOffsetX = rightStickOffsetY = 140;
+
+                    if (CustomMacroLink.HasAnyZero("right", rightStickXData, rightStickYData))
+                    {
+                        goto reload_right;//
+                    }
                 }
 
                 //rightStickOffsetX = rightStickCalib[2];

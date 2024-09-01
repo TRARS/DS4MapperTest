@@ -1,12 +1,7 @@
-﻿using System;
+﻿using DS4MapperTest.ButtonActions;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DS4MapperTest.ActionUtil;
-using DS4MapperTest.ButtonActions;
-using DS4MapperTest.MapperUtil;
 
 namespace DS4MapperTest.DPadActions
 {
@@ -466,28 +461,28 @@ namespace DS4MapperTest.DPadActions
                     {
                         //if ((currentDirNum & btnAdd) != 0)
                         if (currentDir == DpadDirections.Up)// &&
-                            //(previousDir != DpadDirections.Up && previousDir != DpadDirections.UpRight))
+                                                            //(previousDir != DpadDirections.Up && previousDir != DpadDirections.UpRight))
                         {
                             // Map Up or UpRight to output Up direction
                             //data = eventCodes2[currentDirNum];
                             data = usedEventList[currentDirNum];
                         }
                         else if (currentDir == DpadDirections.Right)// &&
-                            //(previousDir != DpadDirections.Right && previousDir != DpadDirections.DownRight))
+                                                                    //(previousDir != DpadDirections.Right && previousDir != DpadDirections.DownRight))
                         {
                             // Map Right or DownRight to output Right direction
                             //data = eventCodes2[currentDirNum];
                             data = usedEventList[currentDirNum];
                         }
                         else if (currentDir == DpadDirections.Down)// &&
-                            //(previousDir != DpadDirections.Down && previousDir != DpadDirections.DownLeft))
+                                                                   //(previousDir != DpadDirections.Down && previousDir != DpadDirections.DownLeft))
                         {
                             // Map Down or DownLeft to output Down direction
                             //data = eventCodes2[currentDirNum];
                             data = usedEventList[currentDirNum];
                         }
                         else if (currentDir == DpadDirections.Left)// &&
-                            //(previousDir != DpadDirections.Left && previousDir != DpadDirections.UpLeft))
+                                                                   //(previousDir != DpadDirections.Left && previousDir != DpadDirections.UpLeft))
                         {
                             // Map Left or UpLeft to output Left direction
                             //data = eventCodes2[currentDirNum];
@@ -584,7 +579,7 @@ namespace DS4MapperTest.DPadActions
                     {
                         //if ((currentDir & DpadDirections.Up) != 0 && (dpadUpDir & btnAdd) != 0)
                         if ((currentDir == DpadDirections.Up || currentDir == DpadDirections.UpRight))// &&
-                            //(previousDir != DpadDirections.Up && previousDir != DpadDirections.UpRight))
+                                                                                                      //(previousDir != DpadDirections.Up && previousDir != DpadDirections.UpRight))
                         {
                             // Map Up or UpRight to output Up direction
                             tempDir = (int)DpadDirections.Up;
@@ -594,7 +589,7 @@ namespace DS4MapperTest.DPadActions
                         }
                         //else if ((currentDir & DpadDirections.Down) != 0 && (dpadDownDir & btnAdd) != 0)
                         else if ((currentDir == DpadDirections.Right || currentDir == DpadDirections.DownRight))// &&
-                            //(previousDir != DpadDirections.Right && previousDir != DpadDirections.DownRight))
+                                                                                                                //(previousDir != DpadDirections.Right && previousDir != DpadDirections.DownRight))
                         {
                             // Map Right or DownRight to output Right direction
                             tempDir = (int)DpadDirections.Right;
@@ -604,7 +599,7 @@ namespace DS4MapperTest.DPadActions
                         }
                         //if ((currentDir & DpadDirections.Left) != 0 && (dpadLeftDir & btnAdd) != 0)
                         else if ((currentDir == DpadDirections.Down || currentDir == DpadDirections.DownLeft))// &&
-                            //(previousDir != DpadDirections.Down && previousDir != DpadDirections.DownLeft))
+                                                                                                              //(previousDir != DpadDirections.Down && previousDir != DpadDirections.DownLeft))
                         {
                             // Map Down or DownLeft to output Down direction
                             tempDir = (int)DpadDirections.Down;
@@ -614,7 +609,7 @@ namespace DS4MapperTest.DPadActions
                         }
                         //else if ((currentDir & DpadDirections.Right) != 0 && (dpadRightDir & btnAdd) != 0)
                         else if ((currentDir == DpadDirections.Left || currentDir == DpadDirections.UpLeft))// &&
-                            //(previousDir != DpadDirections.Left && previousDir != DpadDirections.UpLeft))
+                                                                                                            //(previousDir != DpadDirections.Left && previousDir != DpadDirections.UpLeft))
                         {
                             // Map Left or UpLeft to output Left direction
                             tempDir = (int)DpadDirections.Left;
@@ -717,7 +712,7 @@ namespace DS4MapperTest.DPadActions
         {
             if (tmpActiveBtns.Count > 0)
             {
-                foreach(KeyValuePair<ButtonAction, DpadDirections> pair in tmpActiveBtns)
+                foreach (KeyValuePair<ButtonAction, DpadDirections> pair in tmpActiveBtns)
                 {
                     ButtonAction data = pair.Key;
                     DpadDirections dir = pair.Value;
@@ -1002,7 +997,7 @@ namespace DS4MapperTest.DPadActions
                     //mapper.RunEventFromButton(tmpCodes[0], false);
                 }
             }
-            
+
             if (tmpCodes2[1] != null)
             {
                 data = tmpCodes2[1];
@@ -1093,7 +1088,7 @@ namespace DS4MapperTest.DPadActions
 
                 foreach (string parentPropType in useParentProList)
                 {
-                    switch(parentPropType)
+                    switch (parentPropType)
                     {
                         case PropertyKeyStrings.NAME:
                             name = tempDpadAction.name;

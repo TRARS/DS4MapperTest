@@ -1,10 +1,8 @@
-﻿using System;
+﻿using DS4MapperTest.MapperUtil;
+using DS4MapperTest.StickModifiers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DS4MapperTest.MapperUtil;
-using DS4MapperTest.StickModifiers;
 
 namespace DS4MapperTest.TouchpadActions
 {
@@ -340,7 +338,7 @@ namespace DS4MapperTest.TouchpadActions
 
                 foreach (string parentPropType in useParentProList)
                 {
-                    switch(parentPropType)
+                    switch (parentPropType)
                     {
                         case PropertyKeyStrings.NAME:
                             name = tempStickAction.name;

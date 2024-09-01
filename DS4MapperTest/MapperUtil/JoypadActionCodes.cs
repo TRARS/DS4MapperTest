@@ -1,32 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace DS4MapperTest.MapperUtil
 {
     public enum JoypadActionCodes : uint
     {
         Empty, AlwaysOn = Empty,
-        Btn1, BtnNorth = Btn1, X360_Y = Btn1,
-        Btn2, BtnEast = Btn2, X360_B = Btn2,
-        Btn3, BtnSouth = Btn3, X360_A = Btn3,
-        Btn4, BtnWest = Btn4, X360_X = Btn4,
-        Btn5, BtnLShoulder = Btn5, X360_LB = Btn5,
-        Btn6, BtnRShoulder = Btn6, X360_RB = Btn6,
-        Btn7, BtnMode = Btn7, BtnSteam = Btn7, X360_Guide = Btn7,
-        Btn8, BtnStart = Btn8, X360_Start = Btn8,
-        Btn9, BtnSelect = Btn9, X360_Back = Btn9,
-        Btn10, BtnThumbL = Btn10, X360_ThumbL = Btn10,
-        Btn11, BtnThumbR = Btn11, X360_ThumbR = Btn11,
-        Btn12, BtnDPadUp = Btn12, X360_DPAD_UP = Btn12,
-        Btn13, BtnDPadDown = Btn13, X360_DPAD_DOWN = Btn13,
-        Btn14, BtnDPadLeft = Btn14, X360_DPAD_LEFT = Btn14,
-        Btn15, BtnDPadRight = Btn15, X360_DPAD_RIGHT = Btn15,
+        Btn1, BtnNorth = Btn1, X360_Y = Btn1, DS4_Triangle = Btn1,
+        Btn2, BtnEast = Btn2, X360_B = Btn2, DS4_Circle = Btn2,
+        Btn3, BtnSouth = Btn3, X360_A = Btn3, DS4_Cross = Btn3,
+        Btn4, BtnWest = Btn4, X360_X = Btn4, DS4_Square = Btn4,
+        Btn5, BtnLShoulder = Btn5, X360_LB = Btn5, DS4_L1 = Btn5,
+        Btn6, BtnRShoulder = Btn6, X360_RB = Btn6, DS4_R1 = Btn6,
+        Btn7, BtnMode = Btn7, BtnSteam = Btn7, X360_Guide = Btn7, DS4_PS = Btn7,
+        Btn8, BtnStart = Btn8, X360_Start = Btn8, DS4_Options = Btn8,
+        Btn9, BtnSelect = Btn9, X360_Back = Btn9, DS4_Share = Btn9,
+        Btn10, BtnThumbL = Btn10, X360_ThumbL = Btn10, DS4_L3 = Btn10,
+        Btn11, BtnThumbR = Btn11, X360_ThumbR = Btn11, DS4_R3 = Btn11,
+        Btn12, BtnDPadUp = Btn12, X360_DPAD_UP = Btn12, DS4_DPAD_UP = Btn12,
+        Btn13, BtnDPadDown = Btn13, X360_DPAD_DOWN = Btn13, DS4_DPAD_DOWN = Btn13,
+        Btn14, BtnDPadLeft = Btn14, X360_DPAD_LEFT = Btn14, DS4_DPAD_LEFT = Btn14,
+        Btn15, BtnDPadRight = Btn15, X360_DPAD_RIGHT = Btn15, DS4_DPAD_RIGHT = Btn15,
 
         Btn16, BtnHome = Btn16,
-        Btn17, BtnCapture = Btn17,
+        Btn17, BtnCapture = Btn17, DS4_Touchpad = Btn17,
 
         Btn18, BtnLGrip = Btn18,
         Btn19, BtnRGrip = Btn19,
@@ -58,8 +54,8 @@ namespace DS4MapperTest.MapperUtil
         Axis2, AxisLY = Axis2, X360_LY = Axis2,
         Axis3, AxisRX = Axis3, X360_RX = Axis3,
         Axis4, AxisRY = Axis4, X360_RY = Axis4,
-        Axis5, AxisLTrigger = Axis5, X360_LT = Axis5,
-        Axis6, AxisRTrigger = Axis6, X360_RT = Axis6,
+        Axis5, AxisLTrigger = Axis5, X360_LT = Axis5, DS4_L2 = Axis5,
+        Axis6, AxisRTrigger = Axis6, X360_RT = Axis6, DS4_R2 = Axis6,
 
         AxisMax = 511,
 
@@ -208,7 +204,7 @@ namespace DS4MapperTest.MapperUtil
         public static string Convert(StickActionCodes code)
         {
             string result = code.ToString();
-            switch(code)
+            switch (code)
             {
                 case StickActionCodes.Stick1:
                     result = "X360_LS";
@@ -228,7 +224,7 @@ namespace DS4MapperTest.MapperUtil
         public static string Convert(DPadActionCodes code)
         {
             string result = code.ToString();
-            switch(code)
+            switch (code)
             {
                 case DPadActionCodes.DPad1:
                     result = "X360_DPAD";

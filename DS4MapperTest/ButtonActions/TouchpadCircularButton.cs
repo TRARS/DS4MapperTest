@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DS4MapperTest.ActionUtil;
+﻿using DS4MapperTest.ActionUtil;
 using DS4MapperTest.MapperUtil;
 
 namespace DS4MapperTest.ButtonActions
@@ -84,7 +79,7 @@ namespace DS4MapperTest.ButtonActions
         {
             WrapNotchesProcess(action);
 
-            switch(action.OutputType)
+            switch (action.OutputType)
             {
                 case OutputActionData.ActionType.Keyboard:
                 case OutputActionData.ActionType.MouseButton:
@@ -129,9 +124,9 @@ namespace DS4MapperTest.ButtonActions
 
         public void PrepareActions()
         {
-            foreach(ActionFunc func in actionFuncs)
+            foreach (ActionFunc func in actionFuncs)
             {
-                foreach(OutputActionData actionData in func.OutputActions)
+                foreach (OutputActionData actionData in func.OutputActions)
                 {
                     actionData.useNotches = true;
                     actionData.currentNotches = 0.0;

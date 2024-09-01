@@ -1,11 +1,7 @@
-﻿using System;
+﻿using DS4MapperTest.AxisModifiers;
+using DS4MapperTest.MapperUtil;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DS4MapperTest.AxisModifiers;
-using DS4MapperTest.MapperUtil;
-using DS4MapperTest.ButtonActions;
 
 namespace DS4MapperTest.TouchpadActions
 {
@@ -154,7 +150,7 @@ namespace DS4MapperTest.TouchpadActions
 
                                 relXRemainder = temp - relativeX;
                             }
-                            
+
                             break;
                         case SplitAxesAnalogBindingCodes.MouseY:
                             {
@@ -172,7 +168,7 @@ namespace DS4MapperTest.TouchpadActions
 
                                 relXRemainder = temp - relativeX;
                             }
-                            
+
                             break;
                         case SplitAxesAnalogBindingCodes.MouseWheelX:
                             {
@@ -190,7 +186,7 @@ namespace DS4MapperTest.TouchpadActions
 
                                 relXRemainder = temp - relativeX;
                             }
-                            
+
                             break;
                         case SplitAxesAnalogBindingCodes.MouseWheelY:
                             {
@@ -208,7 +204,7 @@ namespace DS4MapperTest.TouchpadActions
 
                                 relXRemainder = temp - relativeX;
                             }
-                            
+
                             break;
                         default:
                             break;
@@ -243,7 +239,7 @@ namespace DS4MapperTest.TouchpadActions
 
                                 relYRemainder = temp - relativeY;
                             }
-                            
+
                             break;
                         case SplitAxesAnalogBindingCodes.MouseY:
                             {
@@ -261,7 +257,7 @@ namespace DS4MapperTest.TouchpadActions
 
                                 relYRemainder = temp - relativeY;
                             }
-                            
+
                             break;
                         case SplitAxesAnalogBindingCodes.MouseWheelX:
                             {
@@ -279,7 +275,7 @@ namespace DS4MapperTest.TouchpadActions
 
                                 relYRemainder = temp - relativeY;
                             }
-                            
+
                             break;
                         case SplitAxesAnalogBindingCodes.MouseWheelY:
                             {
@@ -297,7 +293,7 @@ namespace DS4MapperTest.TouchpadActions
 
                                 relYRemainder = temp - relativeY;
                             }
-                            
+
                             break;
                         default:
                             break;
@@ -362,7 +358,7 @@ namespace DS4MapperTest.TouchpadActions
 
         public void TranslateOutputBinding()
         {
-            switch(xAxisBinding)
+            switch (xAxisBinding)
             {
                 case SplitAxesAnalogBindingCodes.AxisLX:
                     usedXAxisMapping.OutputType = OutputActionData.ActionType.GamepadControl;

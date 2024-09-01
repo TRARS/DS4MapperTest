@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using DS4MapperTest.Common;
 using HidLibrary;
-using DS4MapperTest.Common;
+using System;
+using System.Diagnostics;
+using System.Threading;
 
 namespace DS4MapperTest.SteamControllerLibrary
 {

@@ -1,32 +1,34 @@
-﻿using System;
+﻿using DS4MapperTest.ActionUtil;
+using DS4MapperTest.ButtonActions;
+using DS4MapperTest.DPadActions;
+using DS4MapperTest.DS4Windows;
+using DS4MapperTest.GyroActions;
+using DS4MapperTest.MapperUtil;
+using DS4MapperTest.StickActions;
+using DS4MapperTest.TouchpadActions;
+using DS4MapperTest.TriggerActions;
+using DS4Windows;
+using Nefarius.ViGEm.Client;
+using Nefarius.ViGEm.Client.Targets;
+using Nefarius.ViGEm.Client.Targets.DualShock4;
+using Nefarius.ViGEm.Client.Targets.Xbox360;
+using Newtonsoft.Json;
+using Sensorit.Base;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows; // Rect
-using DS4MapperTest.DPadActions;
-using DS4MapperTest.MapperUtil;
-using Nefarius.ViGEm.Client;
-using DS4MapperTest.ButtonActions;
-using Sensorit.Base;
-using DS4MapperTest.TouchpadActions;
-using DS4MapperTest.ActionUtil;
-using DS4MapperTest.StickActions;
-using DS4MapperTest.GyroActions;
-using DS4MapperTest.TriggerActions;
-using Newtonsoft.Json;
 using System.IO;
-using Nefarius.ViGEm.Client.Targets;
-using Nefarius.ViGEm.Client.Targets.Xbox360;
-using Nefarius.ViGEm.Client.Targets.DualShock4;
+using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Threading;
+using System.Windows; // Rect
 
 namespace DS4MapperTest
 {
     public abstract class Mapper
     {
+        protected IntermediateState2DS4Report DS4ReportConverter = new();
+
         protected const int X360_STICK_MAX = 32767;
         protected const int X360_STICK_MIN = -32768;
         protected const int OUTPUT_X360_RESOLUTION = X360_STICK_MAX - X360_STICK_MIN;
@@ -370,7 +372,7 @@ namespace DS4MapperTest
                                         {
                                             gyroNoMapAct.GyroSensDefinition = tempDef;
                                         }
-                                        
+
                                         layer.gyroActionDict.Add(tempMeta.Key, gyroNoMapAct);
                                     }
 
@@ -2214,6 +2216,9 @@ namespace DS4MapperTest
 
             unchecked
             {
+                //
+                CustomMacroLink.Entry(0, ref intermediateState);
+
                 ushort tempButtons = 0;
                 if (intermediateState.BtnSouth) tempButtons |= Xbox360Button.A.Value;
                 if (intermediateState.BtnEast) tempButtons |= Xbox360Button.B.Value;
@@ -2256,6 +2261,15 @@ namespace DS4MapperTest
                 ushort tempButtons = 0;
                 DualShock4DPadDirection tempDPad = DualShock4DPadDirection.None;
                 ushort tempSpecial = 0;
+
+                //
+                var ds4Touch1 = intermediateState.DS4Touch1;
+                var ds4Touch2 = intermediateState.DS4Touch2;
+                var dsTouch1 = intermediateState.DualSenseTouch1;
+                var dsTouch2 = intermediateState.DualSenseTouch2;
+                CustomMacroLink.Entry(0, ref intermediateState);
+
+                // Normal Btn
                 if (intermediateState.BtnSouth) tempButtons |= DualShock4Button.Cross.Value;
                 if (intermediateState.BtnEast) tempButtons |= DualShock4Button.Circle.Value;
                 if (intermediateState.BtnWest) tempButtons |= DualShock4Button.Square.Value;
@@ -2263,13 +2277,19 @@ namespace DS4MapperTest
                 if (intermediateState.BtnStart) tempButtons |= DualShock4Button.Options.Value;
                 if (intermediateState.BtnSelect) tempButtons |= DualShock4Button.Share.Value;
 
+                // L1 R1
                 if (intermediateState.BtnLShoulder) tempButtons |= DualShock4Button.ShoulderLeft.Value;
                 if (intermediateState.BtnRShoulder) tempButtons |= DualShock4Button.ShoulderRight.Value;
-                if (intermediateState.BtnMode) tempSpecial |= DualShock4SpecialButton.Ps.Value;
 
+                // PS Touchpad
+                if (intermediateState.BtnMode) tempSpecial |= DualShock4SpecialButton.Ps.Value;
+                if (intermediateState.DS4TouchpadClick) tempSpecial |= DualShock4SpecialButton.Touchpad.Value;
+
+                // L3 R3
                 if (intermediateState.BtnThumbL) tempButtons |= DualShock4Button.ThumbLeft.Value;
                 if (intermediateState.BtnThumbR) tempButtons |= DualShock4Button.ThumbRight.Value;
 
+                // Dpad
                 if (intermediateState.DpadUp && intermediateState.DpadRight) tempDPad = DualShock4DPadDirection.Northeast;
                 else if (intermediateState.DpadUp && intermediateState.DpadLeft) tempDPad = DualShock4DPadDirection.Northwest;
                 else if (intermediateState.DpadUp) tempDPad = DualShock4DPadDirection.North;
@@ -2279,19 +2299,28 @@ namespace DS4MapperTest
                 else if (intermediateState.DpadDown) tempDPad = DualShock4DPadDirection.South;
                 else if (intermediateState.DpadLeft) tempDPad = DualShock4DPadDirection.West;
 
-                tempDS4.SetButtonsFull(tempButtons);
-                tempDS4.SetSpecialButtonsFull((byte)tempSpecial);
-                tempDS4.SetDPadDirection(tempDPad);
+                //tempDS4.SetButtonsFull(tempButtons);
+                //tempDS4.SetSpecialButtonsFull((byte)tempSpecial);
+                //tempDS4.SetDPadDirection(tempDPad);
+
+                // LX LY
+                var LX = (byte)((intermediateState.LX >= 0 ? (DS4_STICK_MAX - DS4_STICK_MID) : -(DS4_STICK_MIN - DS4_STICK_MID)) * intermediateState.LX + DS4_STICK_MID);
+                var LY = (byte)((intermediateState.LY >= 0 ? -(DS4_STICK_MIN - DS4_STICK_MID) : (DS4_STICK_MAX - DS4_STICK_MID)) * -intermediateState.LY + DS4_STICK_MID);
+
+                // RX RY
+                var RX = (byte)((intermediateState.RX >= 0 ? (DS4_STICK_MAX - DS4_STICK_MID) : -(DS4_STICK_MIN - DS4_STICK_MID)) * intermediateState.RX + DS4_STICK_MID);
+                var RY = (byte)((intermediateState.RY >= 0 ? -(DS4_STICK_MIN - DS4_STICK_MID) : (DS4_STICK_MAX - DS4_STICK_MID)) * -intermediateState.RY + DS4_STICK_MID);
+
+                // L2 R2
+                var L2 = (byte)(intermediateState.LTrigger * 255);
+                var R2 = (byte)(intermediateState.RTrigger * 255);
+
+                // 
+                var report = DS4ReportConverter.Convert2DS4Report(tempButtons, tempSpecial, tempDPad,
+                                                                  LX, LY, RX, RY, L2, R2,
+                                                                  ds4Touch1, ds4Touch2, dsTouch1, dsTouch2);
+                tempDS4.SubmitRawReport(report);
             }
-
-            tempDS4.LeftThumbX = (byte)((intermediateState.LX >= 0 ? (DS4_STICK_MAX - DS4_STICK_MID) : -(DS4_STICK_MIN - DS4_STICK_MID)) * intermediateState.LX + DS4_STICK_MID);
-            tempDS4.LeftThumbY = (byte)((intermediateState.LY >= 0 ? -(DS4_STICK_MIN - DS4_STICK_MID) : (DS4_STICK_MAX - DS4_STICK_MID)) * -intermediateState.LY + DS4_STICK_MID);
-
-            tempDS4.RightThumbX = (byte)((intermediateState.RX >= 0 ? (DS4_STICK_MAX - DS4_STICK_MID) : -(DS4_STICK_MIN - DS4_STICK_MID)) * intermediateState.RX + DS4_STICK_MID);
-            tempDS4.RightThumbY = (byte)((intermediateState.RY >= 0 ? -(DS4_STICK_MIN - DS4_STICK_MID) : (DS4_STICK_MAX - DS4_STICK_MID)) * -intermediateState.RY + DS4_STICK_MID);
-
-            tempDS4.LeftTrigger = (byte)(intermediateState.LTrigger * 255);
-            tempDS4.RightTrigger = (byte)(intermediateState.RTrigger * 255);
         }
 
         public void ProcessActionSetLayerChecks()
@@ -2437,7 +2466,7 @@ namespace DS4MapperTest
                     else if (outputControlType == OutputContType.DualShock4)
                     {
                         PopulateDualShock4();
-                        outputController?.SubmitReport();
+                        //outputController?.SubmitReport();
                     }
                 }
 
@@ -2569,6 +2598,11 @@ namespace DS4MapperTest
 
             switch (data.JoypadCode)
             {
+                case JoypadActionCodes.Btn17:
+                    intermediateState.DS4TouchpadClick = true;
+                    intermediateState.Dirty = true;
+                    break;
+
                 case JoypadActionCodes.AxisLX:
                     intermediateState.LX = pressed ? (data.Negative ? -1.0 : 1.0) : 0.0;
                     intermediateState.Dirty = true;
@@ -2796,7 +2830,7 @@ namespace DS4MapperTest
         }
 
         public virtual void GamepadFromStickInput(OutputActionData data,
-            double xNorm, double yNorm, bool force=true)
+            double xNorm, double yNorm, bool force = true)
         {
             data.activatedEvent = true;
 

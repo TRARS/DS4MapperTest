@@ -1,7 +1,6 @@
-﻿using System;
+﻿using FakerInputWrapper;
 using System.Collections.Generic;
 using System.Threading;
-using FakerInputWrapper;
 
 namespace DS4MapperTest
 {
@@ -64,13 +63,13 @@ namespace DS4MapperTest
             absoluteMouseReport.Reset();
             syncAbsoluteMouse = true;
 
-            foreach(KeyboardModifier mod in modifiers)
+            foreach (KeyboardModifier mod in modifiers)
             {
                 keyReport.KeyUp(mod);
             }
             modifiers.Clear();
 
-            foreach(KeyboardKey key in pressedKeys)
+            foreach (KeyboardKey key in pressedKeys)
             {
                 keyReport.KeyUp(key);
             }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using DS4MapperTest.ButtonActions;
+﻿using DS4MapperTest.ButtonActions;
 
 namespace DS4MapperTest.ViewModels
 {
@@ -16,7 +10,7 @@ namespace DS4MapperTest.ViewModels
             {
                 string result = "";
                 result = !string.IsNullOrEmpty(action.Name) ? action.Name :
-                    $"Action Set {mapper.ActionProfile.CurrentActionSetIndex+1}";
+                    $"Action Set {mapper.ActionProfile.CurrentActionSetIndex + 1}";
                 return result;
             }
         }

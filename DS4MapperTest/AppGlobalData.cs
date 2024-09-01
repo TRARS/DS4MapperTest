@@ -1,19 +1,17 @@
 ﻿using HidLibrary;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.Runtime.InteropServices;
+using System.Threading;
+using System.Windows;
+using WpfScreenHelper;
 //using SteamControllerTest.SteamControllerLibrary;
 using static DS4MapperTest.Util;
-using System.Runtime.InteropServices;
-using WpfScreenHelper;
-using System.Windows;
-using System.Threading;
 
 namespace DS4MapperTest
 {
@@ -132,7 +130,7 @@ namespace DS4MapperTest
 
             try
             {
-                foreach(string deviceProfFolder in checkFoldersList)
+                foreach (string deviceProfFolder in checkFoldersList)
                 {
                     string tempDirPath = Path.Combine(appdatapath, PROFILES_FOLDER_NAME, deviceProfFolder);
                     if (!Directory.Exists(tempDirPath))
@@ -141,7 +139,7 @@ namespace DS4MapperTest
                     }
                 }
             }
-            catch(UnauthorizedAccessException)
+            catch (UnauthorizedAccessException)
             {
                 result = false;
             }
@@ -154,7 +152,7 @@ namespace DS4MapperTest
             bool result = true;
             try
             {
-                foreach(string devTemplateFolder in checkFoldersList)
+                foreach (string devTemplateFolder in checkFoldersList)
                 {
                     string exampleDevProfilesPath = Path.Combine(exedirpath, TEMPLATE_PROFILES_DIRNAME, devTemplateFolder);
                     string destDevProfilePath = Path.Combine(appdatapath, PROFILES_FOLDER_NAME, devTemplateFolder);
@@ -171,7 +169,7 @@ namespace DS4MapperTest
                     }
                 }
             }
-            catch(UnauthorizedAccessException)
+            catch (UnauthorizedAccessException)
             {
                 result = false;
             }
@@ -630,12 +628,12 @@ namespace DS4MapperTest
             string tempOutJson = JsonConvert.SerializeObject(profileSerializer, Formatting.Indented,
                 new JsonSerializerSettings()
                 {
-                        //Converters = new List<JsonConverter>()
-                        //{
-                        //    new MapActionSubTypeConverter(),
-                        //}
-                        //TypeNameHandling = TypeNameHandling.Objects
-                        //ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                    //Converters = new List<JsonConverter>()
+                    //{
+                    //    new MapActionSubTypeConverter(),
+                    //}
+                    //TypeNameHandling = TypeNameHandling.Objects
+                    //ReferenceLoopHandling = ReferenceLoopHandling.Ignore
                 });
             Trace.WriteLine(tempOutJson);
 

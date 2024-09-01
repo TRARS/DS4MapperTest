@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections.ObjectModel;
-using DS4MapperTest.ActionUtil;
+﻿using DS4MapperTest.ActionUtil;
 using DS4MapperTest.ButtonActions;
 using DS4MapperTest.MapperUtil;
-using System.Threading;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace DS4MapperTest.ViewModels
 {
@@ -743,7 +740,7 @@ namespace DS4MapperTest.ViewModels
             ShowAvailableLayers = true;
 
             LayerOpChoiceItem tempItem = layerOperationsComboItems[index];
-            switch(tempItem.LayerOp)
+            switch (tempItem.LayerOp)
             {
                 case OutputActionData.ActionType.HoldActionLayer:
                     ShowAvailableLayers = true;
@@ -1088,30 +1085,64 @@ namespace DS4MapperTest.ViewModels
         {
             int tempInd = 0;
 
-            //if (mapper.ActionProfile.OutputGamepadSettings.outputGamepad == EmulatedControllerSettings.OutputControllerType.Xbox360)
+            //if (mapper.ActionProfile.OutputGamepadSettings.outputGamepad == Mapper.OutputContType.Xbox360)
             {
                 tempInd = 0;
-                gamepadComboItems.AddRange(new GamepadCodeItem[]
+                var xboxList = new List<GamepadCodeItem>()
+                    {
+                        new GamepadCodeItem("Unbound", JoypadActionCodes.Empty, tempInd++),
+                        new GamepadCodeItem("X360_A", JoypadActionCodes.X360_A, tempInd++),
+                        new GamepadCodeItem("X360_B", JoypadActionCodes.X360_B, tempInd++),
+                        new GamepadCodeItem("X360_X", JoypadActionCodes.X360_X, tempInd++),
+                        new GamepadCodeItem("X360_Y", JoypadActionCodes.X360_Y, tempInd++),
+                        new GamepadCodeItem("X360_LB", JoypadActionCodes.X360_LB, tempInd++),
+                        new GamepadCodeItem("X360_RB", JoypadActionCodes.X360_RB, tempInd++),
+                        new GamepadCodeItem("X360_LT", JoypadActionCodes.X360_LT, tempInd++),
+                        new GamepadCodeItem("X360_RT", JoypadActionCodes.X360_RT, tempInd++),
+                        new GamepadCodeItem("X360_Guide", JoypadActionCodes.X360_Guide, tempInd++),
+                        new GamepadCodeItem("X360_Back", JoypadActionCodes.X360_Back, tempInd++),
+                        new GamepadCodeItem("X360_Start", JoypadActionCodes.X360_Start, tempInd++),
+                        new GamepadCodeItem("X360_ThumbL", JoypadActionCodes.X360_ThumbL, tempInd++),
+                        new GamepadCodeItem("X360_ThumbR", JoypadActionCodes.X360_ThumbR, tempInd++),
+                        new GamepadCodeItem("X360_DPad_Up", JoypadActionCodes.X360_DPAD_UP, tempInd++),
+                        new GamepadCodeItem("X360_DPad_Down", JoypadActionCodes.X360_DPAD_DOWN, tempInd++),
+                        new GamepadCodeItem("X360_DPad_Left", JoypadActionCodes.X360_DPAD_LEFT, tempInd++),
+                        new GamepadCodeItem("X360_DPad_Right", JoypadActionCodes.X360_DPAD_RIGHT, tempInd++),
+                        new GamepadCodeItem("DS4_Touchpad", JoypadActionCodes.DS4_Touchpad, tempInd++),
+                    };
+
+                tempInd = 0;
+                var ds4List = new List<GamepadCodeItem>()
+                    {
+                        new GamepadCodeItem("Unbound", JoypadActionCodes.Empty, tempInd++),
+                        new GamepadCodeItem("DS4_Triangle", JoypadActionCodes.DS4_Triangle, tempInd++),
+                        new GamepadCodeItem("DS4_Circle", JoypadActionCodes.DS4_Circle, tempInd++),
+                        new GamepadCodeItem("DS4_Cross", JoypadActionCodes.DS4_Cross, tempInd++),
+                        new GamepadCodeItem("DS4_Square", JoypadActionCodes.DS4_Square, tempInd++),
+                        new GamepadCodeItem("DS4_L1", JoypadActionCodes.DS4_L1, tempInd++),
+                        new GamepadCodeItem("DS4_R1", JoypadActionCodes.DS4_R1, tempInd++),
+                        new GamepadCodeItem("DS4_L2", JoypadActionCodes.DS4_L2, tempInd++),
+                        new GamepadCodeItem("DS4_R2", JoypadActionCodes.DS4_R2, tempInd++),
+                        new GamepadCodeItem("DS4_PS", JoypadActionCodes.DS4_PS, tempInd++),
+                        new GamepadCodeItem("DS4_Options", JoypadActionCodes.DS4_Options, tempInd++),
+                        new GamepadCodeItem("DS4_Share", JoypadActionCodes.DS4_Share, tempInd++),
+                        new GamepadCodeItem("DS4_L3", JoypadActionCodes.DS4_L3, tempInd++),
+                        new GamepadCodeItem("DS4_R3", JoypadActionCodes.DS4_R3, tempInd++),
+                        new GamepadCodeItem("DS4_DPAD_UP", JoypadActionCodes.DS4_DPAD_UP, tempInd++),
+                        new GamepadCodeItem("DS4_DPAD_DOWN", JoypadActionCodes.DS4_DPAD_DOWN, tempInd++),
+                        new GamepadCodeItem("DS4_DPAD_LEFT", JoypadActionCodes.DS4_DPAD_LEFT, tempInd++),
+                        new GamepadCodeItem("DS4_DPAD_RIGHT", JoypadActionCodes.DS4_DPAD_RIGHT, tempInd++),
+                        new GamepadCodeItem("DS4_Touchpad", JoypadActionCodes.DS4_Touchpad, tempInd++),
+                    };
+                var tempList = mapper.ActionProfile.OutputGamepadSettings.outputGamepad switch
                 {
-                    new GamepadCodeItem("Unbound", JoypadActionCodes.Empty, tempInd++),
-                    new GamepadCodeItem("X360_A", JoypadActionCodes.X360_A, tempInd++),
-                    new GamepadCodeItem("X360_B", JoypadActionCodes.X360_B, tempInd++),
-                    new GamepadCodeItem("X360_X", JoypadActionCodes.X360_X, tempInd++),
-                    new GamepadCodeItem("X360_Y", JoypadActionCodes.X360_Y, tempInd++),
-                    new GamepadCodeItem("X360_LB", JoypadActionCodes.X360_LB, tempInd++),
-                    new GamepadCodeItem("X360_RB", JoypadActionCodes.X360_RB, tempInd++),
-                    new GamepadCodeItem("X360_LT", JoypadActionCodes.X360_LT, tempInd++),
-                    new GamepadCodeItem("X360_RT", JoypadActionCodes.X360_RT, tempInd++),
-                    new GamepadCodeItem("X360_Guide", JoypadActionCodes.X360_Guide, tempInd++),
-                    new GamepadCodeItem("X360_Back", JoypadActionCodes.X360_Back, tempInd++),
-                    new GamepadCodeItem("X360_Start", JoypadActionCodes.X360_Start, tempInd++),
-                    new GamepadCodeItem("X360_ThumbL", JoypadActionCodes.X360_ThumbL, tempInd++),
-                    new GamepadCodeItem("X360_ThumbR", JoypadActionCodes.X360_ThumbR, tempInd++),
-                    new GamepadCodeItem("X360_DPad_Up", JoypadActionCodes.X360_DPAD_UP, tempInd++),
-                    new GamepadCodeItem("X360_DPad_Down", JoypadActionCodes.X360_DPAD_DOWN, tempInd++),
-                    new GamepadCodeItem("X360_DPad_Left", JoypadActionCodes.X360_DPAD_LEFT, tempInd++),
-                    new GamepadCodeItem("X360_DPad_Right", JoypadActionCodes.X360_DPAD_RIGHT, tempInd++),
-                });
+                    Mapper.OutputContType.Xbox360 => xboxList,
+                    Mapper.OutputContType.DualShock4 => ds4List,
+                    _ => null
+                };
+                //var tempList = ds4List;
+
+                gamepadComboItems.AddRange(tempList);
 
                 gamepadIndexAliases = new Dictionary<JoypadActionCodes, int>();
                 gamepadComboItems.ForEach((item) =>

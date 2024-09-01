@@ -1,15 +1,13 @@
-﻿using System;
+﻿using DS4MapperTest.ButtonActions;
+using DS4MapperTest.MapperUtil;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Serialization;
-using DS4MapperTest.ButtonActions;
-using DS4MapperTest.MapperUtil;
 
 namespace DS4MapperTest
 {
@@ -206,9 +204,9 @@ namespace DS4MapperTest
                 actionSets.Add(setSerializer);
             }
 
-            foreach(ActionSet actionSet in tempProfile.ActionSets)
+            foreach (ActionSet actionSet in tempProfile.ActionSets)
             {
-                foreach(ActionLayer layer in actionSet.ActionLayers)
+                foreach (ActionLayer layer in actionSet.ActionLayers)
                 {
                     ProfileActionsMapping tempMapping = new ProfileActionsMapping()
                     {
@@ -218,7 +216,7 @@ namespace DS4MapperTest
 
                     List<LayerMapping> tempLayerMapping = new List<LayerMapping>();
                     // Skip over unbound actions
-                    foreach(KeyValuePair<string, MapAction> actionPair in
+                    foreach (KeyValuePair<string, MapAction> actionPair in
                         layer.normalActionDict.Where((item) => item.Value.Id != MapAction.DEFAULT_UNBOUND_ID))
                     {
                         LayerMapping layerMapping = new LayerMapping();
@@ -240,7 +238,7 @@ namespace DS4MapperTest
         public void PopulateProfile()
         {
             tempProfile.CycleBindings.Clear();
-            foreach(CycleButtonBindingSerializer serializer in cycleSerializers)
+            foreach (CycleButtonBindingSerializer serializer in cycleSerializers)
             {
                 serializer.PopulateProfileSet(tempProfile);
                 if (tempProfile.CycleBindings.ContainsKey(serializer.CycleId))
@@ -318,7 +316,7 @@ namespace DS4MapperTest
         {
             dataBinds.Clear();
 
-            foreach(OutputActionData data in cycleButton.Actions)
+            foreach (OutputActionData data in cycleButton.Actions)
             {
                 dataBinds.Add(new OutputActionDataSerializer(data));
             }

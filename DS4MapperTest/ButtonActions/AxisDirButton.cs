@@ -3,9 +3,6 @@ using DS4MapperTest.MapperUtil;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DS4MapperTest.ButtonActions
 {
@@ -35,7 +32,7 @@ namespace DS4MapperTest.ButtonActions
             set => direction = value;
         }
 
-        public AxisDirButton(): base()
+        public AxisDirButton() : base()
         {
             analog = true;
         }
@@ -99,29 +96,29 @@ namespace DS4MapperTest.ButtonActions
             switch (action.OutputType)
             {
                 case OutputActionData.ActionType.MouseWheel:
-                {
-                    double temp = Math.Abs(lastWheelDistance - currentValue);
-                    if (temp >= 0.1)
                     {
-                        //action.firstRun = true;
-                        //EffectiveDurationMs = (int)(action.DurationMs / ButtonDistance);
-                        lastWheelDistance = currentValue;
-                        long currentElapsed = action.Elapsed.ElapsedMilliseconds;
-                        long newTime = (long)(action.DurationMs / ButtonDistance);
-                        long newElapsed;
-                        if (currentElapsed > newTime)
+                        double temp = Math.Abs(lastWheelDistance - currentValue);
+                        if (temp >= 0.1)
                         {
-                            newElapsed = newTime;
+                            //action.firstRun = true;
+                            //EffectiveDurationMs = (int)(action.DurationMs / ButtonDistance);
+                            lastWheelDistance = currentValue;
+                            long currentElapsed = action.Elapsed.ElapsedMilliseconds;
+                            long newTime = (long)(action.DurationMs / ButtonDistance);
+                            long newElapsed;
+                            if (currentElapsed > newTime)
+                            {
+                                newElapsed = newTime;
+                            }
+                            else
+                            {
+                                newElapsed = newTime - currentElapsed;
+                            }
+
+                            action.EffectiveDurationMs = (int)newElapsed;
                         }
-                        else
-                        {
-                            newElapsed = newTime - currentElapsed;
-                        }
-                        
-                        action.EffectiveDurationMs = (int)newElapsed;
+                        break;
                     }
-                    break;
-                }
                 default:
                     break;
             }

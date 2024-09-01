@@ -1,11 +1,9 @@
-﻿using System;
+﻿using DS4MapperTest.AxisModifiers;
+using DS4MapperTest.ButtonActions;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DS4MapperTest.AxisModifiers;
-using DS4MapperTest.ButtonActions;
 
 namespace DS4MapperTest.TriggerActions
 {
@@ -274,7 +272,7 @@ namespace DS4MapperTest.TriggerActions
 
                 foreach (string parentPropType in useParentProList)
                 {
-                    switch(parentPropType)
+                    switch (parentPropType)
                     {
                         case PropertyKeyStrings.NAME:
                             name = tempDualTrigAction.name;
@@ -317,7 +315,7 @@ namespace DS4MapperTest.TriggerActions
             CascadePropertyChange(e.Mapper, e.PropertyName);
         }
 
-        private void StartStageProcessing(bool useTime=true)
+        private void StartStageProcessing(bool useTime = true)
         {
             startCheck = true;
             if (useTime)
@@ -361,7 +359,7 @@ namespace DS4MapperTest.TriggerActions
                         }
                         else if (axisNorm != 0.0)
                         {
-                            result = ActiveZoneButtons.SoftPull; 
+                            result = ActiveZoneButtons.SoftPull;
                         }
                         else
                         {

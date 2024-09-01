@@ -157,7 +157,7 @@ namespace DS4MapperTest
                     for (int i = 0; i <= 0xFF; i++)
                     {
                         testLook[0 + i] = defaultTable[i];
-                        testLook[256+i] = (defaultTable[i] >> 8) ^ defaultTable[defaultTable[i] & 0xFF];
+                        testLook[256 + i] = (defaultTable[i] >> 8) ^ defaultTable[defaultTable[i] & 0xFF];
                         testLook[512 + i] = (testLook[256 + i] >> 8) ^ defaultTable[testLook[256 + i] & 0xFF];
                         testLook[768 + i] = (testLook[512 + i] >> 8) ^ defaultTable[testLook[512 + i] & 0xFF];
 
@@ -182,7 +182,7 @@ namespace DS4MapperTest
 
                 return defaultTable;
             }
-                
+
 
             var createTable = new uint[256];
             for (uint i = 0; i < 256; i++)
@@ -324,21 +324,21 @@ namespace DS4MapperTest
                                 (uint)(byteP[i++] << 16) |
                                 (uint)(byteP[i++] << 24);
 
-                    crc = byteT[3840+(one & 0xFF)] ^
-                        byteT[3584+((one >> 8) & 0xFF)] ^
-                        byteT[3328+((one >> 16) & 0xFF)] ^
-                        byteT[3072+((one >> 24) & 0xFF)] ^
-                        byteT[2816+(two & 0xFF)] ^
-                        byteT[2560+((two >> 8) & 0xFF)] ^
-                        byteT[2304+((two >> 16) & 0xFF)] ^
-                        byteT[2048+((two >> 24) & 0xFF)] ^
-                        byteT[1792+(three & 0xFF)] ^
-                        byteT[1536+((three >> 8) & 0xFF)] ^
-                        byteT[1280+((three >> 16) & 0xFF)] ^
-                        byteT[1024+((three >> 24) & 0xFF)] ^
-                        byteT[768+(four & 0xFF)] ^
-                        byteT[512+((four >> 8) & 0xFF)] ^
-                        byteT[256+((four >> 16) & 0xFF)] ^
+                    crc = byteT[3840 + (one & 0xFF)] ^
+                        byteT[3584 + ((one >> 8) & 0xFF)] ^
+                        byteT[3328 + ((one >> 16) & 0xFF)] ^
+                        byteT[3072 + ((one >> 24) & 0xFF)] ^
+                        byteT[2816 + (two & 0xFF)] ^
+                        byteT[2560 + ((two >> 8) & 0xFF)] ^
+                        byteT[2304 + ((two >> 16) & 0xFF)] ^
+                        byteT[2048 + ((two >> 24) & 0xFF)] ^
+                        byteT[1792 + (three & 0xFF)] ^
+                        byteT[1536 + ((three >> 8) & 0xFF)] ^
+                        byteT[1280 + ((three >> 16) & 0xFF)] ^
+                        byteT[1024 + ((three >> 24) & 0xFF)] ^
+                        byteT[768 + (four & 0xFF)] ^
+                        byteT[512 + ((four >> 8) & 0xFF)] ^
+                        byteT[256 + ((four >> 16) & 0xFF)] ^
                         byteT[(four >> 24) & 0xFF];
 
                     bufsize -= 16;
@@ -355,13 +355,13 @@ namespace DS4MapperTest
                             (uint)(byteP[i++] << 8) |
                             (uint)(byteP[i++] << 16) |
                             (uint)(byteP[i++] << 24);
-                crc = byteT[1792+(one8 & 0xFF)] ^
-                    byteT[1536+((one8 >> 8) & 0xFF)] ^
-                    byteT[1280+((one8 >> 16) & 0xFF)] ^
-                    byteT[1024+(one8 >> 24)] ^
-                    byteT[768+(two8 & 0xFF)] ^
-                    byteT[512+((two8 >> 8) & 0xFF)] ^
-                    byteT[256+((two8 >> 16) & 0xFF)] ^
+                crc = byteT[1792 + (one8 & 0xFF)] ^
+                    byteT[1536 + ((one8 >> 8) & 0xFF)] ^
+                    byteT[1280 + ((one8 >> 16) & 0xFF)] ^
+                    byteT[1024 + (one8 >> 24)] ^
+                    byteT[768 + (two8 & 0xFF)] ^
+                    byteT[512 + ((two8 >> 8) & 0xFF)] ^
+                    byteT[256 + ((two8 >> 16) & 0xFF)] ^
                     byteT[two8 >> 24];
 
                 bufsize -= 8;
@@ -382,7 +382,7 @@ namespace DS4MapperTest
                 //{
                 crc = (crc >> 8) ^ byteT[(crc & 0xFF) ^ byteP[i++]];// i++;
                 crc = (crc >> 8) ^ byteT[(crc & 0xFF) ^ byteP[i++]];// i++;
-                                                                            //}
+                                                                    //}
             }
 
             return crc;

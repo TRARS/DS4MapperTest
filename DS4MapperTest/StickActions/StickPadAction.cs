@@ -1,15 +1,10 @@
-﻿using System;
+﻿using DS4MapperTest.ButtonActions;
+using DS4MapperTest.MapperUtil;
+using DS4MapperTest.StickModifiers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DS4MapperTest.StickModifiers;
-using DS4MapperTest.MapperUtil;
-using DS4MapperTest.ActionUtil;
-using DS4MapperTest.ButtonActions;
 using System.Runtime.CompilerServices;
-using System.Windows.Input;
-using System.Diagnostics;
 
 namespace DS4MapperTest.StickActions
 {
@@ -531,7 +526,7 @@ namespace DS4MapperTest.StickActions
                             tmpActiveBtns.Remove(data);
                         }
                     }
-                    
+
                     if (tmpBtnActions[1] != null)
                     {
                         data = tmpBtnActions[1];
@@ -592,36 +587,36 @@ namespace DS4MapperTest.StickActions
                     {
                         //if ((previousDir & currentDir) == 0)
                         //{
-                            data = usedFuncList[currentDirNum];
+                        data = usedFuncList[currentDirNum];
                         //}
                     }
                     else if (currentMode == DPadMode.EightWay)
                     {
                         //if (currentDir != previousDir)
                         //{
-                            data = usedFuncList[currentDirNum];
+                        data = usedFuncList[currentDirNum];
                         //}
                     }
                     else if (currentMode == DPadMode.FourWayCardinal)
                     {
                         //if ((currentDirNum & btnAdd) != 0)
                         if (currentDir == DpadDirections.Up)// &&
-                            //(previousDir != DpadDirections.Up && previousDir != DpadDirections.UpRight))
+                                                            //(previousDir != DpadDirections.Up && previousDir != DpadDirections.UpRight))
                         {
                             data = usedFuncList[currentDirNum];
                         }
                         else if (currentDir == DpadDirections.Right)// &&
-                            //(previousDir != DpadDirections.Right && previousDir != DpadDirections.DownRight))
+                                                                    //(previousDir != DpadDirections.Right && previousDir != DpadDirections.DownRight))
                         {
                             data = usedFuncList[currentDirNum];
                         }
                         else if (currentDir == DpadDirections.Down)// &&
-                            //(previousDir != DpadDirections.Down && previousDir != DpadDirections.DownLeft))
+                                                                   //(previousDir != DpadDirections.Down && previousDir != DpadDirections.DownLeft))
                         {
                             data = usedFuncList[currentDirNum];
                         }
                         else if (currentDir == DpadDirections.Left)// &&
-                            //(previousDir != DpadDirections.Left && previousDir != DpadDirections.UpLeft))
+                                                                   //(previousDir != DpadDirections.Left && previousDir != DpadDirections.UpLeft))
                         {
                             data = usedFuncList[currentDirNum];
                         }
@@ -702,9 +697,9 @@ namespace DS4MapperTest.StickActions
                     {
                         //if (currentDir != previousDir)
                         //{
-                            //tmpCodes[i] = eventCodes[(int)currentDir]; i++;
-                            tmpBtnDirs[i] = (int)currentDir;
-                            tmpBtnActions[i] = usedFuncList[(int)currentDir]; i++;
+                        //tmpCodes[i] = eventCodes[(int)currentDir]; i++;
+                        tmpBtnDirs[i] = (int)currentDir;
+                        tmpBtnActions[i] = usedFuncList[(int)currentDir]; i++;
                         //}
                     }
                     else if (currentMode == DPadMode.FourWayCardinal)
@@ -789,7 +784,7 @@ namespace DS4MapperTest.StickActions
                             tmpActiveBtns.Add(data, (DpadDirections)tmpBtnDirs[0]);
                         }
                     }
-                    
+
                     if (tmpBtnActions[1] != null)
                     {
                         data = tmpBtnActions[1];
@@ -822,7 +817,7 @@ namespace DS4MapperTest.StickActions
                     }
                 }
 
-                foreach(AxisDirButton removeBtn in removeBtnCandidates)
+                foreach (AxisDirButton removeBtn in removeBtnCandidates)
                 {
                     tmpActiveBtns.Remove(removeBtn);
                 }
@@ -1091,7 +1086,7 @@ namespace DS4MapperTest.StickActions
         }
 
         //private unsafe void ReleaseStandardDiagonalEvents(Mapper mapper)
-        private void ReleaseStandardDiagonalEvents(Mapper mapper, bool checkSoft=false,
+        private void ReleaseStandardDiagonalEvents(Mapper mapper, bool checkSoft = false,
             StickPadAction checkStickAction = null)
         {
             int tempDir;
@@ -1185,7 +1180,7 @@ namespace DS4MapperTest.StickActions
             }
         }
 
-        private void ReleaseFourWayCardinalEvents(Mapper mapper, bool checkSoft=false, StickPadAction checkStickAction = null)
+        private void ReleaseFourWayCardinalEvents(Mapper mapper, bool checkSoft = false, StickPadAction checkStickAction = null)
         {
             AxisDirButton data = null;
             int currentDirNum = (int)currentDir;
@@ -1446,7 +1441,7 @@ namespace DS4MapperTest.StickActions
 
                 foreach (string parentPropType in useParentProList)
                 {
-                    switch(parentPropType)
+                    switch (parentPropType)
                     {
                         case PropertyKeyStrings.NAME:
                             name = tempPadAction.name;

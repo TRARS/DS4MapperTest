@@ -1,10 +1,6 @@
-﻿using System;
+﻿using DS4MapperTest.MapperUtil;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DS4MapperTest.ActionUtil;
-using DS4MapperTest.MapperUtil;
 
 namespace DS4MapperTest.ButtonActions
 {
@@ -104,7 +100,7 @@ namespace DS4MapperTest.ButtonActions
         public static bool ValidDataBinding(OutputActionData.ActionType testType)
         {
             bool result = false;
-            switch(testType)
+            switch (testType)
             {
                 case OutputActionData.ActionType.Keyboard:
                 case OutputActionData.ActionType.MouseButton:

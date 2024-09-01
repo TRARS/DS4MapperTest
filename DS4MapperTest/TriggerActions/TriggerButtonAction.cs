@@ -1,10 +1,7 @@
-﻿using System;
+﻿using DS4MapperTest.AxisModifiers;
+using DS4MapperTest.ButtonActions;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DS4MapperTest.AxisModifiers;
-using DS4MapperTest.ButtonActions;
 
 namespace DS4MapperTest.TriggerActions
 {

@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DS4MapperTest.ButtonActions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using DS4MapperTest.ButtonActions;
+using System;
+using System.Collections.Generic;
 using static DS4MapperTest.Mapper;
-using DS4MapperTest.DS4Library;
 
 namespace DS4MapperTest
 {
@@ -108,7 +104,7 @@ namespace DS4MapperTest
                 currentActionSet = actionSets[0];
                 defaultActionSet = currentActionSet;
 
-                foreach(ActionSet set in actionSets)
+                foreach (ActionSet set in actionSets)
                 {
                     set.ResetAliases();
                 }

@@ -1,9 +1,7 @@
-﻿using System;
-using System.IO;
-using System.Text;
-using System.Threading;
-using NLog;
+﻿using NLog;
 using NLog.Targets.Wrappers;
+using System.IO;
+using System.Threading;
 
 namespace DS4MapperTest
 {

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using DS4MapperTest.ButtonActions;
+﻿using DS4MapperTest.ButtonActions;
 using DS4MapperTest.TriggerActions;
+using System;
 
 namespace DS4MapperTest.ViewModels.TriggerActionPropViewModels
 {
@@ -330,7 +325,7 @@ namespace DS4MapperTest.ViewModels.TriggerActionPropViewModels
 
         private void PrepareModel()
         {
-            switch(action.TriggerStateMode)
+            switch (action.TriggerStateMode)
             {
                 case TriggerDualStageAction.DualStageMode.Threshold:
                     selectedDSModeIndex = 0;

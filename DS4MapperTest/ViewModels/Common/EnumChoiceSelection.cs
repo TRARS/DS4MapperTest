@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DS4MapperTest.ViewModels.Common
+﻿namespace DS4MapperTest.ViewModels.Common
 {
     public class EnumChoiceSelection<T>
     {

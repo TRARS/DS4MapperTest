@@ -1,12 +1,10 @@
-﻿using System;
+﻿using DS4MapperTest.ActionUtil;
+using DS4MapperTest.MapperUtil;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using DS4MapperTest.ActionUtil;
-using DS4MapperTest.MapperUtil;
 
 namespace DS4MapperTest.ButtonActions
 {
@@ -626,7 +624,7 @@ namespace DS4MapperTest.ButtonActions
                             ActionFunc func = distanceFuncsEnumerator.Current;
                             if (!func.active) continue;
 
-                            foreach(OutputActionData action in func.OutputActions)
+                            foreach (OutputActionData action in func.OutputActions)
                             {
                                 if (action.activatedEvent)
                                 {
@@ -826,7 +824,7 @@ namespace DS4MapperTest.ButtonActions
             activeEvent = false;
         }
 
-        public override void Release(Mapper mapper, bool resetState=true, bool ignoreReleaseActions=false)
+        public override void Release(Mapper mapper, bool resetState = true, bool ignoreReleaseActions = false)
         {
             //if (active)
             if (active || activeFuns.Count > 0)
@@ -1311,7 +1309,7 @@ namespace DS4MapperTest.ButtonActions
 
                 foreach (string parentPropType in useParentProList)
                 {
-                    switch(parentPropType)
+                    switch (parentPropType)
                     {
                         case PropertyKeyStrings.NAME:
                             name = parentBtnAction.name;
@@ -1489,7 +1487,7 @@ namespace DS4MapperTest.ButtonActions
         {
             string result = "";
             List<string> tempList = new List<string>();
-            foreach(ActionFunc func in actionFuncs)
+            foreach (ActionFunc func in actionFuncs)
             {
                 tempList.Add(func.Describe(mapper));
             }

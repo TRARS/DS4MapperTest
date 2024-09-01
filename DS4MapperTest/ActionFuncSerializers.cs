@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DS4MapperTest.ActionUtil;
+using DS4MapperTest.MapperUtil;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using DS4MapperTest.ActionUtil;
-using DS4MapperTest.MapperUtil;
+using System;
+using System.Collections.Generic;
 
 namespace DS4MapperTest
 {
@@ -49,7 +46,7 @@ namespace DS4MapperTest
         public void PopulateFunc()
         {
             actionFunc.OutputActions.Clear();
-            foreach(OutputActionDataSerializer serializer in actionDataSerializers)
+            foreach (OutputActionDataSerializer serializer in actionDataSerializers)
             {
                 actionFunc.OutputActions.Add(serializer.OutputData);
             }
@@ -58,7 +55,7 @@ namespace DS4MapperTest
         // Serialize
         public void PopulateOutputActionData()
         {
-            foreach(OutputActionData data in actionFunc.OutputActions)
+            foreach (OutputActionData data in actionFunc.OutputActions)
             {
                 actionDataSerializers.Add(new OutputActionDataSerializer(data));
             }
@@ -131,7 +128,7 @@ namespace DS4MapperTest
             return !settings.IsDefault();
         }
 
-        public NormalPressFuncSerializer(): base()
+        public NormalPressFuncSerializer() : base()
         {
             this.type = typeString;
             actionFunc = pressFunc;
@@ -254,7 +251,7 @@ namespace DS4MapperTest
         }
     }
 
-    public class ReleaseFuncSerializer: ActionFuncSerializer
+    public class ReleaseFuncSerializer : ActionFuncSerializer
     {
         public class ReleaseFuncSettings
         {
@@ -749,7 +746,7 @@ namespace DS4MapperTest
                     {
                         serializer.Serialize(writer, funcSerializer);
                     }
-                    
+
                     break;
                 case "HoldPress":
                     if (current is HoldPressFuncSerializer holdFuncSerializer)

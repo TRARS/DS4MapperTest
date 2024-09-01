@@ -1,16 +1,13 @@
-﻿using System;
+﻿//using DS4MapperTest.SteamControllerLibrary;
+using DS4MapperTest.Common;
+using Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Data;
-using System.Windows.Input;
-using Newtonsoft.Json;
-//using DS4MapperTest.SteamControllerLibrary;
-using DS4MapperTest.Common;
 
 namespace DS4MapperTest.ViewModels
 {
@@ -161,7 +158,7 @@ namespace DS4MapperTest.ViewModels
             {
                 int ind = -1;
                 int findInd = 0;
-                foreach(DeviceListItem devItem in controllerList)
+                foreach (DeviceListItem devItem in controllerList)
                 {
                     if (devItem.ItemIndex == device.Index)
                     {

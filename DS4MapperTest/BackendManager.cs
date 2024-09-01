@@ -1,15 +1,12 @@
-﻿using System;
+﻿using DS4MapperTest.JoyConLibrary;
+using Nefarius.ViGEm.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
-using Nefarius.ViGEm.Client;
-using DS4MapperTest.DS4Library;
 using System.Windows.Threading;
-using System.Runtime.InteropServices;
-using System.Diagnostics;
-using DS4MapperTest.JoyConLibrary;
 
 namespace DS4MapperTest
 {
@@ -265,7 +262,8 @@ namespace DS4MapperTest
 
                 int tempInd = ind;
                 testMapper.Start(vigemTestClient, fakerInputHandler);
-                testMapper.ProfileChanged += (object sender, string e) => {
+                testMapper.ProfileChanged += (object sender, string e) =>
+                {
                     appGlobal.activeProfiles[tempInd] = e;
                     appGlobal.SaveControllerDeviceSettings(device, device.DeviceOptions);
                 };
@@ -396,7 +394,8 @@ namespace DS4MapperTest
                 testMapper.Start(vigemTestClient, fakerInputHandler);
                 //testMapper.RequestOSD += TestMapper_RequestOSD;
                 int tempInd = ind;
-                testMapper.ProfileChanged += (object sender, string e) => {
+                testMapper.ProfileChanged += (object sender, string e) =>
+                {
                     appGlobal.activeProfiles[tempInd] = e;
                     appGlobal.SaveControllerDeviceSettings(device, device.DeviceOptions);
                 };
@@ -674,7 +673,8 @@ namespace DS4MapperTest
 
             int tempInd = ind;
             mapper.Start(vigemTestClient, fakerInputHandler);
-            mapper.ProfileChanged += (object sender, string e) => {
+            mapper.ProfileChanged += (object sender, string e) =>
+            {
                 appGlobal.activeProfiles[tempInd] = e;
                 appGlobal.SaveControllerDeviceSettings(device, device.DeviceOptions);
             };
@@ -739,7 +739,7 @@ namespace DS4MapperTest
 
             List<JoyConMapper> tempList = mapperDict.Where((t) => t.Value.DeviceType == InputDeviceType.JoyCon)
                 .Select(t => t.Value as JoyConMapper).ToList();
-            foreach(JoyConMapper mapper in tempList)
+            foreach (JoyConMapper mapper in tempList)
             {
                 JoyConDevice otherDevice = mapper.JoyDevice;
                 if (mapper.SecondaryJoyDevice == null)

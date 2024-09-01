@@ -1,15 +1,8 @@
 ﻿using DS4MapperTest.DS4Library;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
 #if DEBUG
-using System.Diagnostics;
 #endif
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
 
 namespace DS4MapperTest
 {
@@ -83,7 +76,7 @@ namespace DS4MapperTest
 
         public void UpdateLightbar(InputDeviceBase device, Profile profile)
         {
-            switch(profile.LightbarSettings.Mode)
+            switch (profile.LightbarSettings.Mode)
             {
                 case LightbarMode.SolidColor:
                     {
@@ -155,7 +148,7 @@ namespace DS4MapperTest
                         if (!fadewatch.IsRunning)
                         {
                             fadewatch.Restart();
-                            switch(fadedirection)
+                            switch (fadedirection)
                             {
                                 case FadeDirection.In:
                                     fadedirection = FadeDirection.Out;
@@ -440,10 +433,10 @@ namespace DS4MapperTest
             double m = val - C;
             double rPrime = 0.0, gPrime = 0.0, bPrime = 0.0;
 #if DEBUG
-            Trace.WriteLine($"H {hue} H'{hPrime} C{C} X{X}");
+            Trace.WriteLineIf(false, $"H {hue} H'{hPrime} C{C} X{X}");
 #endif
 
-            switch((int)hPrime)
+            switch ((int)hPrime)
             {
                 case 0:
                     rPrime = C; gPrime = X; bPrime = 0;

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DS4MapperTest.MapperUtil;
+﻿using DS4MapperTest.MapperUtil;
 using FakerInputWrapper;
 
 namespace DS4MapperTest
@@ -303,7 +298,7 @@ namespace DS4MapperTest
         public static string GetStringForMouseButton(int mouseBtnCode)
         {
             string result = "";
-            switch(mouseBtnCode)
+            switch (mouseBtnCode)
             {
                 case MouseButtonCodes.MOUSE_LEFT_BUTTON:
                     result = "LMB";
@@ -330,7 +325,7 @@ namespace DS4MapperTest
         public static string GetStringForX360GamepadCode(JoypadActionCodes code)
         {
             string result = "";
-            switch(code)
+            switch (code)
             {
                 case JoypadActionCodes.X360_A:
                     result = "A";
@@ -395,7 +390,6 @@ namespace DS4MapperTest
                 case JoypadActionCodes.X360_LY_POS:
                     result = "LY+";
                     break;
-
                 case JoypadActionCodes.X360_RX_NEG:
                     result = "RX-";
                     break;
@@ -418,10 +412,105 @@ namespace DS4MapperTest
             return result;
         }
 
+        public static string GetStringForDS4GamepadCode(JoypadActionCodes code)
+        {
+            string result = "";
+            switch (code)
+            {
+                case JoypadActionCodes.DS4_Triangle:
+                    result = "Triangle";
+                    break;
+                case JoypadActionCodes.DS4_Circle:
+                    result = "Circle";
+                    break;
+                case JoypadActionCodes.DS4_Cross:
+                    result = "Cross";
+                    break;
+                case JoypadActionCodes.DS4_Square:
+                    result = "Square";
+                    break;
+                case JoypadActionCodes.DS4_L1:
+                    result = "L1";
+                    break;
+                case JoypadActionCodes.DS4_R1:
+                    result = "R1";
+                    break;
+                case JoypadActionCodes.DS4_L2:
+                    result = "L2";
+                    break;
+                case JoypadActionCodes.DS4_R2:
+                    result = "R2";
+                    break;
+                case JoypadActionCodes.DS4_PS:
+                    result = "PS";
+                    break;
+                case JoypadActionCodes.DS4_Options:
+                    result = "Options";
+                    break;
+                case JoypadActionCodes.DS4_Share:
+                    result = "Share";
+                    break;
+                case JoypadActionCodes.DS4_L3:
+                    result = "L3";
+                    break;
+                case JoypadActionCodes.DS4_R3:
+                    result = "R3";
+                    break;
+                case JoypadActionCodes.DS4_DPAD_UP:
+                    result = "DPAD_UP";
+                    break;
+                case JoypadActionCodes.DS4_DPAD_DOWN:
+                    result = "DPAD_DOWN";
+                    break;
+                case JoypadActionCodes.DS4_DPAD_LEFT:
+                    result = "DPAD_LEFT";
+                    break;
+                case JoypadActionCodes.DS4_DPAD_RIGHT:
+                    result = "DPAD_RIGHT";
+                    break;
+                case JoypadActionCodes.DS4_Touchpad:
+                    result = "Touchpad";
+                    break;
+
+                case JoypadActionCodes.X360_LX_NEG:
+                    result = "LX-";
+                    break;
+                case JoypadActionCodes.X360_LX_POS:
+                    result = "LX+";
+                    break;
+                case JoypadActionCodes.X360_LY_NEG:
+                    result = "LY-";
+                    break;
+                case JoypadActionCodes.X360_LY_POS:
+                    result = "LY+";
+                    break;
+                case JoypadActionCodes.X360_RX_NEG:
+                    result = "RX-";
+                    break;
+                case JoypadActionCodes.X360_RX_POS:
+                    result = "RX+";
+                    break;
+                case JoypadActionCodes.X360_RY_NEG:
+                    result = "RY-";
+                    break;
+                case JoypadActionCodes.X360_RY_POS:
+                    result = "RY+";
+                    break;
+                case JoypadActionCodes.Empty:
+                    result = "Empty";
+                    break;
+
+                default:
+                    break;
+            }
+
+            return result;
+        }
+
         public static string GetStringForGamepadStick(StickActionCodes code)
         {
             string result = "";
-            switch(code)
+            switch (code)
             {
                 case StickActionCodes.X360_LS:
                     result = "LS";
@@ -440,7 +529,7 @@ namespace DS4MapperTest
         {
             string result = "";
             MouseWheelCodes tempCode = (MouseWheelCodes)code;
-            switch(tempCode)
+            switch (tempCode)
             {
                 case MouseWheelCodes.WheelUp:
                     result = "Wheel Up";

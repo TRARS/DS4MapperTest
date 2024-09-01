@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DS4MapperTest
+﻿namespace DS4MapperTest
 {
     public static class ProfileDeviceSettingsFactory
     {
@@ -12,7 +6,7 @@ namespace DS4MapperTest
             Profile tempProfile)
         {
             ProfileDeviceSettings result = null;
-            switch(deviceType)
+            switch (deviceType)
             {
                 case InputDeviceType.SteamController:
                     {

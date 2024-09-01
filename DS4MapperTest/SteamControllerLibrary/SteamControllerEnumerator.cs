@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using HidLibrary;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using HidLibrary;
 
 namespace DS4MapperTest.SteamControllerLibrary
 {

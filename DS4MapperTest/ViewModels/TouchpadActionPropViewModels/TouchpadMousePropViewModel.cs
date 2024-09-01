@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
-using DS4MapperTest.ActionUtil;
-using DS4MapperTest.MapperUtil;
-using DS4MapperTest.TouchpadActions;
+﻿using DS4MapperTest.TouchpadActions;
+using System;
 
 namespace DS4MapperTest.ViewModels.TouchpadActionPropViewModels
 {

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Sensorit.Base;
-using DS4MapperTest.MapperUtil;
+﻿using DS4MapperTest.MapperUtil;
 using DS4MapperTest.StickModifiers;
+using Sensorit.Base;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DS4MapperTest.TouchpadActions
 {
@@ -502,7 +499,7 @@ namespace DS4MapperTest.TouchpadActions
                 dx = previousDX;
                 dy = previousDY;
             }
-            
+
             previousDX = dx; previousDY = dy;
             //int rawDeltaX = dx, rawDeltaY = dy;
 
@@ -864,7 +861,7 @@ namespace DS4MapperTest.TouchpadActions
 
                 foreach (string parentPropType in useParentProList)
                 {
-                    switch(parentPropType)
+                    switch (parentPropType)
                     {
                         case PropertyKeyStrings.NAME:
                             name = tempMouseJoyAction.name;

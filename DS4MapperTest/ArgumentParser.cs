@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.IO;
 
 namespace DS4MapperTest
@@ -28,10 +24,10 @@ namespace DS4MapperTest
             for (int i = 0; i < args.Length; i++)
             {
                 string arg = args[i];
-                switch(arg)
+                switch (arg)
                 {
                     default:
-                        if (i+1 == args.Length && File.Exists(arg))
+                        if (i + 1 == args.Length && File.Exists(arg))
                         {
                             profilePath = arg;
                         }

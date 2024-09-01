@@ -1,22 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Linq;
-using DS4MapperTest.ActionUtil;
+﻿using DS4MapperTest.ActionUtil;
 using DS4MapperTest.ButtonActions;
+using DS4MapperTest.GyroActions;
 using DS4MapperTest.MapperUtil;
 using DS4MapperTest.StickActions;
-using DS4MapperTest.GyroActions;
-using static DS4MapperTest.MapperUtil.OutputActionData;
 using DS4MapperTest.StickModifiers;
 using DS4MapperTest.TouchpadActions;
 using DS4MapperTest.TriggerActions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Runtime.Serialization;
+using static DS4MapperTest.MapperUtil.OutputActionData;
 
 namespace DS4MapperTest
 {
@@ -191,7 +188,7 @@ namespace DS4MapperTest
         {
             foreach (ActionFunc func in buttonAction.ActionFuncs)
             {
-                foreach(OutputActionData data in func.OutputActions)
+                foreach (OutputActionData data in func.OutputActions)
                 {
                     switch (data.OutputType)
                     {
@@ -923,7 +920,7 @@ namespace DS4MapperTest
             triggerDualAction.FullPullActButton.ActionFuncs.Clear();
 
             AxisDirButton tempButton = triggerDualAction.SoftPullActButton;
-            foreach(ActionFuncSerializer serializer in softPullStageButton.ActionFuncSerializers)
+            foreach (ActionFuncSerializer serializer in softPullStageButton.ActionFuncSerializers)
             {
                 serializer.PopulateFunc();
                 tempButton.ActionFuncs.Add(serializer.ActionFunc);
@@ -942,7 +939,7 @@ namespace DS4MapperTest
         public void PopulateFuncs()
         {
             List<ActionFuncSerializer> tempFuncs = new List<ActionFuncSerializer>();
-            foreach(ActionFunc tempFunc in triggerDualAction.SoftPullActButton.ActionFuncs)
+            foreach (ActionFunc tempFunc in triggerDualAction.SoftPullActButton.ActionFuncs)
             {
                 tempFuncs.Add(ActionFuncSerializerFactory.CreateSerializer(tempFunc));
             }
@@ -1314,7 +1311,7 @@ namespace DS4MapperTest
                 touchActionPadAction = action;
             }
         }
-        
+
         private Dictionary<TouchpadActionPad.DpadDirections, TouchPadDirBinding> dictPadBindings =
             new Dictionary<TouchpadActionPad.DpadDirections, TouchPadDirBinding>();
 
@@ -2464,7 +2461,7 @@ namespace DS4MapperTest
 
             clockwiseBinding = new TouchpadCircBtnBinding();
             clockwiseBinding.ActionDirName = touchCircAct.ClockWiseBtn.Name;
-            foreach(ActionFunc tempFunc in touchCircAct.ClockWiseBtn.ActionFuncs)
+            foreach (ActionFunc tempFunc in touchCircAct.ClockWiseBtn.ActionFuncs)
             {
                 ActionFuncSerializer tempSerializer =
                         ActionFuncSerializerFactory.CreateSerializer(tempFunc);
@@ -4179,7 +4176,7 @@ namespace DS4MapperTest
         // Post-deserialize
         public override void PopulateMap()
         {
-            foreach(AxisDirButton dirButton in stickPadAct.EventCodes4)
+            foreach (AxisDirButton dirButton in stickPadAct.EventCodes4)
             {
                 dirButton.ActionFuncs.Clear();
             }
@@ -4235,7 +4232,7 @@ namespace DS4MapperTest
         public void FlagBtnChangedDirection(StickPadAction.DpadDirections dir,
             StickPadAction action)
         {
-            switch(dir)
+            switch (dir)
             {
                 case StickPadAction.DpadDirections.Up:
                     action.ChangedProperties.Add(StickPadAction.PropertyKeyStrings.PAD_DIR_UP);
@@ -5489,7 +5486,7 @@ namespace DS4MapperTest
         }
 
         // Deserialize
-        public GyroMouseSerializer(): base()
+        public GyroMouseSerializer() : base()
         {
             mapAction = gyroMouseAction;
             settings = new GyroMouseSettings(gyroMouseAction);
@@ -5750,7 +5747,7 @@ namespace DS4MapperTest
         }
 
         // Deserialize
-        public GyroDirectionalSwipeSerializer(): base()
+        public GyroDirectionalSwipeSerializer() : base()
         {
             mapAction = gyroDirSwipeAction;
             settings = new GyroDirSwipeSettings(gyroDirSwipeAction);
@@ -5807,7 +5804,7 @@ namespace DS4MapperTest
                     dirButton.ActionFuncs.Add(serializer.ActionFunc);
                 }
 
-                switch(dir)
+                switch (dir)
                 {
                     case SwipeDirBinding.SwipeDir.Left:
                         gyroDirSwipeAction.UsedEventsButtonsX[(int)GyroDirectionalSwipe.SwipeAxisXDir.Left] = dirButton;
@@ -5847,7 +5844,7 @@ namespace DS4MapperTest
 
         private void FlagBtnChangedDirection(SwipeDirBinding.SwipeDir dir)
         {
-            switch(dir)
+            switch (dir)
             {
                 case SwipeDirBinding.SwipeDir.Left:
                     gyroDirSwipeAction.ChangedProperties.Add(GyroDirectionalSwipe.PropertyKeyStrings.PAD_DIR_LEFT);
@@ -7648,7 +7645,7 @@ namespace DS4MapperTest
             }
 
             //serializer.Serialize(new JTokenWriter(tempJ), value);
-            serializer.Serialize(writer,tempJ);
+            serializer.Serialize(writer, tempJ);
 
             //writer.WriteEndObject();
             //JObject j = JObject.FromObject(value);
@@ -7863,7 +7860,7 @@ namespace DS4MapperTest
             else
             {
                 List<string> tempList = new List<string>();
-                foreach(JoypadActionCodes code in joypadActionCodes)
+                foreach (JoypadActionCodes code in joypadActionCodes)
                 {
                     if (code == JoypadActionCodes.AlwaysOn)
                     {
@@ -7892,7 +7889,7 @@ namespace DS4MapperTest
         {
             JArray array = JArray.Load(reader);
             List<ActionFuncSerializer> funcsList = new List<ActionFuncSerializer>();
-            foreach(JToken token in array.Children())
+            foreach (JToken token in array.Children())
             {
                 if (token.Type == JTokenType.Object)
                 {

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using DS4MapperTest.ActionUtil;
+﻿using DS4MapperTest.ActionUtil;
 using DS4MapperTest.ButtonActions;
+using System;
+using System.Windows.Controls;
 
 namespace DS4MapperTest.ViewModels
 {
@@ -113,7 +107,7 @@ namespace DS4MapperTest.ViewModels
         public ButtonMapAction PrepareNewAction(int ind)
         {
             ButtonMapAction result = null;
-            switch(ind)
+            switch (ind)
             {
                 case 0:
                     result = new ButtonNoAction();

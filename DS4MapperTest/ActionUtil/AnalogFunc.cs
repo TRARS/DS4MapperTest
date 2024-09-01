@@ -1,6 +1,6 @@
-﻿using System;
+﻿using DS4MapperTest.MapperUtil;
+using System;
 using System.Collections.Generic;
-using DS4MapperTest.MapperUtil;
 
 namespace DS4MapperTest.ActionUtil
 {

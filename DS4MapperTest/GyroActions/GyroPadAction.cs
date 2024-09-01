@@ -1,13 +1,10 @@
-﻿using System;
+﻿using DS4MapperTest.ButtonActions;
+using DS4MapperTest.MapperUtil;
+using DS4MapperTest.StickModifiers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
-using DS4MapperTest.ButtonActions;
-using DS4MapperTest.StickModifiers;
-using DS4MapperTest.MapperUtil;
-using DS4MapperTest.ActionUtil;
 
 namespace DS4MapperTest.GyroActions
 {

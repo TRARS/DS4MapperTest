@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.IO;
-using System.ComponentModel;
 using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
+using System.Linq;
 
 namespace DS4MapperTest.ViewModels
 {
@@ -206,7 +203,7 @@ namespace DS4MapperTest.ViewModels
             List<string> keys = errors.Keys.ToList();
             errors.Clear();
 
-            foreach(string key in keys)
+            foreach (string key in keys)
             {
                 ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(key));
             }
@@ -216,9 +213,9 @@ namespace DS4MapperTest.ViewModels
 
         private void RaiseErrorStatusEvents(List<string> keys)
         {
-            foreach(string key in keys)
+            foreach (string key in keys)
             {
-                switch(key)
+                switch (key)
                 {
                     case "ProfilePath":
                         ProfilePathErrorsChanged?.Invoke(this, EventArgs.Empty);

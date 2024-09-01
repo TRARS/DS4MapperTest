@@ -1,10 +1,7 @@
-﻿using System;
+﻿using HidLibrary;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using HidLibrary;
 
 namespace DS4MapperTest.DS4Library
 {

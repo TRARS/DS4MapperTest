@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DS4MapperTest.GyroActions
+﻿namespace DS4MapperTest.GyroActions
 {
     public class GyroSensDefinition
     {

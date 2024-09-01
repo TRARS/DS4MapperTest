@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using HidLibrary;
+using Microsoft.Win32;
+using System;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Win32;
-using HidLibrary;
 
 namespace DS4MapperTest
 {

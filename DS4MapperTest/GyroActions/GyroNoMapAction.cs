@@ -1,11 +1,4 @@
-﻿using DS4MapperTest.ActionUtil;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DS4MapperTest.GyroActions
+﻿namespace DS4MapperTest.GyroActions
 {
     public class GyroNoMapAction : GyroMapAction
     {

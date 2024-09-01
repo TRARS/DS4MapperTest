@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
-using DS4MapperTest.ActionUtil;
-using DS4MapperTest.MapperUtil;
-using DS4MapperTest.TouchpadActions;
+﻿using DS4MapperTest.MapperUtil;
 using DS4MapperTest.StickModifiers;
+using DS4MapperTest.TouchpadActions;
 using DS4MapperTest.ViewModels.Common;
-using DS4MapperTest.StickActions;
+using System;
+using System.Collections.Generic;
 
 namespace DS4MapperTest.ViewModels.TouchpadActionPropViewModels
 {
@@ -668,7 +662,7 @@ namespace DS4MapperTest.ViewModels.TouchpadActionPropViewModels
 
         private void PrepareModel()
         {
-            switch(action.OutputAction.StickCode)
+            switch (action.OutputAction.StickCode)
             {
                 case StickActionCodes.Empty:
                     outputStickIndex = 0;

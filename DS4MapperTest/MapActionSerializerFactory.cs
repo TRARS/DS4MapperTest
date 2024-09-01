@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DS4MapperTest
+﻿namespace DS4MapperTest
 {
     public static class MapActionSerializerFactory
     {
         public static MapActionSerializer CreateSerializer(ActionLayer layer, MapAction action)
         {
             MapActionSerializer serializer = null;
-            switch(action.ActionTypeName)
+            switch (action.ActionTypeName)
             {
                 case "ButtonAction":
                     serializer = new ButtonActionSerializer(layer, action);

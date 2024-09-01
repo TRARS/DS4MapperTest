@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DS4MapperTest
+﻿namespace DS4MapperTest
 {
     /// <summary>
     /// Enumeration for virtual keys.

@@ -1,9 +1,5 @@
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DS4MapperTest.MapperUtil
 {
@@ -298,7 +294,7 @@ namespace DS4MapperTest.MapperUtil
         private bool UseProcessForAction()
         {
             bool process = false;
-            switch(outputType)
+            switch (outputType)
             {
                 case ActionType.Wait:
                     process = true;
@@ -312,7 +308,7 @@ namespace DS4MapperTest.MapperUtil
         public bool ProcessAction()
         {
             bool active = activatedEvent;
-            switch(outputType)
+            switch (outputType)
             {
                 case ActionType.Wait:
                     {
@@ -352,37 +348,37 @@ namespace DS4MapperTest.MapperUtil
         {
             bool active = activatedEvent;
             //bool result = false;
-            switch(outputType)
+            switch (outputType)
             {
                 case ActionType.MouseWheel:
-                {
-                    if (!tickTimerActive)
                     {
-                        elapsed.Restart();
-                        tickTimerActive = true;
-                    }
-
-                    if (!firstRun)
-                    {
-                        if (elapsed.ElapsedMilliseconds >= effectiveDurationMs)
+                        if (!tickTimerActive)
                         {
                             elapsed.Restart();
-                            active = true;
+                            tickTimerActive = true;
+                        }
+
+                        if (!firstRun)
+                        {
+                            if (elapsed.ElapsedMilliseconds >= effectiveDurationMs)
+                            {
+                                elapsed.Restart();
+                                active = true;
+                            }
+                            else
+                            {
+                                active = false;
+                            }
                         }
                         else
                         {
-                            active = false;
+                            // Process first event immediately
+                            active = true;
+                            effectiveDurationMs = durationMs;
                         }
-                    }
-                    else
-                    {
-                        // Process first event immediately
-                        active = true;
-                        effectiveDurationMs = durationMs;
-                    }
 
-                    break;
-                }
+                        break;
+                    }
                 /*case ActionType.Wait:
                 {
                     if (!tickTimerActive)
@@ -488,7 +484,14 @@ namespace DS4MapperTest.MapperUtil
                     result = mouseDir.ToString();
                     break;
                 case ActionType.GamepadControl:
-                    result = OutputDataAliasUtil.GetStringForX360GamepadCode(joypadCode);
+                    if (false)
+                    {
+                        result = OutputDataAliasUtil.GetStringForX360GamepadCode(joypadCode);
+                    }
+                    else
+                    {
+                        result = OutputDataAliasUtil.GetStringForDS4GamepadCode(joypadCode);
+                    }
                     break;
                 case ActionType.SwitchSet:
                     {

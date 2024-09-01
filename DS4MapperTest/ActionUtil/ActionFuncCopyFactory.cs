@@ -7,7 +7,7 @@ namespace DS4MapperTest.ActionUtil
         {
             ActionFunc result = null;
 
-            switch(func)
+            switch (func)
             {
                 case NormalPressFunc normPress:
                     {
